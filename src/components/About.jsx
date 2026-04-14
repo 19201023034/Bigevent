@@ -29,7 +29,7 @@ export default function About({ t }) {
           </div>
           <div className="about-image-block reveal reveal-d2">
             <div className="about-img-main">
-              <svg viewBox="0 0 480 360" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" style={{width:'100%',height:'100%'}}>
+              <svg viewBox="0 0 480 360" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" style={{width:'100%',height:'100%'}} aria-hidden="true">
                 <rect width="480" height="360" fill="#060607"/>
                 <defs>
                   <radialGradient id="wh_bg" cx="50%" cy="50%" r="70%">

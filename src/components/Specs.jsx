@@ -78,13 +78,8 @@ export default function Specs({ t }) {
                 ))}
               </ul>
               
-              {/* Opis tekstowy – 2 zdania dodane na życzenie */}
               <div className="specs-product-summary">
-                {p.id === 'indoor' ? (
-                  <>Idealne pod studio wirtualne albo wymagających klientów pod targi. Rozdzielczość to 512 pikseli na 1m długości.</>
-                ) : (
-                  <>Idealna jakość na zewnętrzne eventy. Super czerń dla wymagających widzów, którzy cenią sobie dobrą jakość obrazu.</>
-                )}
+                {p.id === 'indoor' ? t.specs_indoor_summary : t.specs_outdoor_summary}
               </div>
             </div>
           ))}

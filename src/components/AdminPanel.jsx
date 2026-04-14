@@ -86,8 +86,28 @@ const SECTIONS = [
     ],
   },
   {
+    id: 'testimonials',
+    label: '06 — Opinie klientów',
+    fields: [
+      { key: 'testimonials_eyebrow', label: 'Eyebrow' },
+      { key: 'testimonials_h2',      label: 'Tytuł sekcji' },
+      { key: 'test1_quote',   label: 'Opinia 1 — cytat', multiline: true },
+      { key: 'test1_name',    label: 'Opinia 1 — imię i nazwisko' },
+      { key: 'test1_role',    label: 'Opinia 1 — stanowisko' },
+      { key: 'test1_company', label: 'Opinia 1 — firma' },
+      { key: 'test2_quote',   label: 'Opinia 2 — cytat', multiline: true },
+      { key: 'test2_name',    label: 'Opinia 2 — imię i nazwisko' },
+      { key: 'test2_role',    label: 'Opinia 2 — stanowisko' },
+      { key: 'test2_company', label: 'Opinia 2 — firma' },
+      { key: 'test3_quote',   label: 'Opinia 3 — cytat', multiline: true },
+      { key: 'test3_name',    label: 'Opinia 3 — imię i nazwisko' },
+      { key: 'test3_role',    label: 'Opinia 3 — stanowisko' },
+      { key: 'test3_company', label: 'Opinia 3 — firma' },
+    ],
+  },
+  {
     id: 'blog',
-    label: '06 — Blog',
+    label: '07 — Blog',
     fields: [
       { key: 'blog_eyebrow', label: 'Eyebrow' },
       { key: 'blog_h2',      label: 'Tytuł sekcji' },
@@ -105,7 +125,7 @@ const SECTIONS = [
   },
   {
     id: 'about',
-    label: '07 — O nas',
+    label: '08 — O nas',
     fields: [
       { key: 'about_eyebrow', label: 'Eyebrow' },
       { key: 'about_h2',     label: 'Tytuł sekcji' },
@@ -119,7 +139,7 @@ const SECTIONS = [
   },
   {
     id: 'contact',
-    label: '08 — Kontakt',
+    label: '09 — Kontakt',
     fields: [
       { key: 'contact_eyebrow', label: 'Eyebrow' },
       { key: 'contact_h2',     label: 'Tytuł sekcji' },
@@ -132,12 +152,15 @@ const SECTIONS = [
 ];
 
 const IMAGE_SLOTS = [
-  { key: 'portfolio_1', label: 'Realizacja 1' },
-  { key: 'portfolio_2', label: 'Realizacja 2' },
-  { key: 'portfolio_3', label: 'Realizacja 3' },
-  { key: 'portfolio_4', label: 'Realizacja 4' },
-  { key: 'about_photo', label: 'O nas — zdjęcie' },
+  { key: 'portfolio_1',  label: 'Realizacja 1' },
+  { key: 'portfolio_2',  label: 'Realizacja 2' },
+  { key: 'portfolio_3',  label: 'Realizacja 3' },
+  { key: 'portfolio_4',  label: 'Realizacja 4' },
+  { key: 'about_photo',  label: 'O nas — zdjęcie' },
   { key: 'studio_photo', label: 'Studio — zdjęcie' },
+  { key: 'test1_photo',  label: 'Opinia 1 — avatar' },
+  { key: 'test2_photo',  label: 'Opinia 2 — avatar' },
+  { key: 'test3_photo',  label: 'Opinia 3 — avatar' },
 ];
 
 function ImageSlot({ slotKey, label, images, onSave }) {

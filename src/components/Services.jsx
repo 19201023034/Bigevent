@@ -19,7 +19,7 @@ function LedVisual() {
 function StudioVisual() {
   return (
     <div className="studio-visual">
-      <svg viewBox="0 0 340 192" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" style={{width:'100%',height:'100%'}}>
+      <svg viewBox="0 0 340 192" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" style={{width:'100%',height:'100%'}} aria-hidden="true">
         <rect width="340" height="192" fill="#050508"/>
         <rect x="20" y="15" width="300" height="120" rx="4" fill="#0A0A10"/>
         <g opacity="0.6">
@@ -52,7 +52,7 @@ function StudioVisual() {
 function ScenoVisual() {
   return (
     <div className="studio-visual" style={{ background: '#0A0A0A' }}>
-       <svg viewBox="0 0 340 192" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" style={{width:'100%',height:'100%'}}>
+       <svg viewBox="0 0 340 192" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" style={{width:'100%',height:'100%'}} aria-hidden="true">
         <g stroke="#ADD034" strokeWidth="1" opacity="0.3">
             {[40, 100, 160, 220, 280].map(x => (
                 <g key={x}>

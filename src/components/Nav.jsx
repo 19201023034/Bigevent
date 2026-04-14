@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { scrollTo as _scrollTo } from '../utils/scrollTo';
 
 const BigEventLogo = ({ theme }) => (
@@ -27,9 +27,13 @@ const PicturesDoodle = ({ theme }) => (
   </span>
 );
 
+const SECTION_IDS = ['services', 'studio', 'portfolio', 'blog', 'testimonials', 'about', 'contact'];
+
 export default function Nav({ lang, setLang, theme, toggleTheme, t }) {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [scrolled,   setScrolled]   = useState(false);
+  const [activeId,   setActiveId]   = useState('');
+  const observerRef = useRef(null);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 30);
@@ -37,15 +41,34 @@ export default function Nav({ lang, setLang, theme, toggleTheme, t }) {
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
+  // IntersectionObserver to track which section is in view
+  useEffect(() => {
+    observerRef.current?.disconnect();
+    observerRef.current = new IntersectionObserver(
+      (entries) => {
+        entries.forEach(e => {
+          if (e.isIntersecting) setActiveId(e.target.id);
+        });
+      },
+      { rootMargin: '-40% 0px -55% 0px' }
+    );
+    SECTION_IDS.forEach(id => {
+      const el = document.getElementById(id);
+      if (el) observerRef.current.observe(el);
+    });
+    return () => observerRef.current?.disconnect();
+  }, []);
+
   const scrollTo = (id) => { _scrollTo(id); setMobileOpen(false); };
 
   const links = [
-    { id: 'services',  label: t.nav_services },
-    { id: 'studio',    label: t.nav_studio    },
-    { id: 'portfolio', label: t.nav_portfolio },
-    { id: 'blog',      label: t.nav_blog      },
-    { id: 'about',     label: t.nav_about     },
-    { id: 'contact',   label: t.nav_contact   },
+    { id: 'services',     label: t.nav_services     },
+    { id: 'studio',       label: t.nav_studio       },
+    { id: 'portfolio',    label: t.nav_portfolio    },
+    { id: 'blog',         label: t.nav_blog         },
+    { id: 'testimonials', label: t.nav_testimonials },
+    { id: 'about',        label: t.nav_about        },
+    { id: 'contact',      label: t.nav_contact      },
   ];
 
   return (
@@ -62,7 +85,11 @@ export default function Nav({ lang, setLang, theme, toggleTheme, t }) {
         <ul className="nav-links">
           {links.map(l => (
             <li key={l.id}>
-              <a href={`#${l.id}`} onClick={e => { e.preventDefault(); scrollTo(l.id); }}>
+              <a
+                href={`#${l.id}`}
+                className={activeId === l.id ? 'active' : ''}
+                onClick={e => { e.preventDefault(); scrollTo(l.id); }}
+              >
                 {l.label}
               </a>
             </li>
@@ -101,14 +128,37 @@ export default function Nav({ lang, setLang, theme, toggleTheme, t }) {
         </div>
       </nav>
 
-      {/* Mobile menu repositions depending on scrolled state */}
+      {/* Mobile menu */}
       <div className={`mobile-menu${mobileOpen ? ' open' : ''}${scrolled ? ' scrolled' : ''}`}>
         {links.map(l => (
           <a key={l.id} href={`#${l.id}`}
+            className={activeId === l.id ? 'active' : ''}
             onClick={e => { e.preventDefault(); scrollTo(l.id); }}>
             {l.label}
           </a>
         ))}
+        <div className="mobile-menu-footer">
+          <div className="mobile-lang-switcher">
+            {['pl', 'en', 'de'].map(l => (
+              <button key={l} className={`lang-btn${lang === l ? ' active' : ''}`}
+                onClick={() => { setLang(l); setMobileOpen(false); }}>
+                {l.toUpperCase()}
+              </button>
+            ))}
+          </div>
+          <button className="theme-toggle" onClick={() => { toggleTheme(); setMobileOpen(false); }} aria-label="Toggle theme">
+            {theme === 'dark' ? (
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
+                <circle cx="12" cy="12" r="4"/>
+                <path d="M12 2v2M12 20v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M2 12h2M20 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/>
+              </svg>
+            ) : (
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
+                <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/>
+              </svg>
+            )}
+          </button>
+        </div>
       </div>
     </>
   );

@@ -13,7 +13,7 @@ export default function Studio({ t }) {
             <div className="studio-features">
               <div className="studio-feature">
                 <div className="feat-icon">
-                  <svg viewBox="0 0 18 18" fill="none" stroke="#ADD034" strokeWidth="1.4" strokeLinecap="round">
+                  <svg viewBox="0 0 18 18" fill="none" stroke="#ADD034" strokeWidth="1.4" strokeLinecap="round" aria-hidden="true">
                     <rect x="1" y="2" width="16" height="12" rx="2"/><circle cx="9" cy="8" r="2.5"/>
                   </svg>
                 </div>
@@ -24,7 +24,7 @@ export default function Studio({ t }) {
               </div>
               <div className="studio-feature">
                 <div className="feat-icon">
-                  <svg viewBox="0 0 18 18" fill="none" stroke="#ADD034" strokeWidth="1.4" strokeLinecap="round">
+                  <svg viewBox="0 0 18 18" fill="none" stroke="#ADD034" strokeWidth="1.4" strokeLinecap="round" aria-hidden="true">
                     <circle cx="9" cy="9" r="7"/><path d="M9 4v5l3 2"/>
                   </svg>
                 </div>
@@ -35,7 +35,7 @@ export default function Studio({ t }) {
               </div>
               <div className="studio-feature">
                 <div className="feat-icon">
-                  <svg viewBox="0 0 18 18" fill="none" stroke="#ADD034" strokeWidth="1.4" strokeLinecap="round">
+                  <svg viewBox="0 0 18 18" fill="none" stroke="#ADD034" strokeWidth="1.4" strokeLinecap="round" aria-hidden="true">
                     <path d="M3 9l4 4 8-8"/>
                   </svg>
                 </div>

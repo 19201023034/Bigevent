@@ -1,0 +1,29 @@
+{
+  "name": "BigEvent — LED Screens & Virtual Production Studio",
+  "short_name": "BigEvent",
+  "description": "Wynajem ekranów LED na eventy i targi. Studio wirtualnej produkcji 4K. Aachen, Niemcy.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0C0C0C",
+  "theme_color": "#ADD034",
+  "lang": "pl",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/favicon.png",
+      "sizes": "32x32",
+      "type": "image/png"
+    },
+    {
+      "src": "/apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    }
+  ],
+  "categories": ["business", "productivity"]
+}

@@ -1,6 +1,6 @@
 function PortfolioP1() {
   return (
-    <svg viewBox="0 0 600 265" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" style={{width:'100%',height:'100%'}}>
+    <svg viewBox="0 0 600 265" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" style={{width:'100%',height:'100%'}} aria-hidden="true">
       <rect width="600" height="265" fill="#040405"/>
       <rect x="20" y="20" width="560" height="200" rx="4" fill="#060608"/>
       <defs><radialGradient id="c_glow" cx="50%" cy="50%" r="55%"><stop offset="0%" stopColor="#ADD034" stopOpacity="0.14"/><stop offset="100%" stopColor="#ADD034" stopOpacity="0"/></radialGradient></defs>

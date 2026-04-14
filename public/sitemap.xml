@@ -5,7 +5,7 @@
   <!-- Homepage PL (default) -->
   <url>
     <loc>https://bigevent.de/</loc>
-    <lastmod>2025-01-01</lastmod>
+    <lastmod>2026-04-14</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
     <xhtml:link rel="alternate" hreflang="pl"       href="https://bigevent.de/"/>
@@ -17,7 +17,7 @@
   <!-- Homepage EN -->
   <url>
     <loc>https://bigevent.de/en/</loc>
-    <lastmod>2025-01-01</lastmod>
+    <lastmod>2026-04-14</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
     <xhtml:link rel="alternate" hreflang="pl"       href="https://bigevent.de/"/>
@@ -29,7 +29,7 @@
   <!-- Homepage DE -->
   <url>
     <loc>https://bigevent.de/de/</loc>
-    <lastmod>2025-01-01</lastmod>
+    <lastmod>2026-04-14</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
     <xhtml:link rel="alternate" hreflang="pl"       href="https://bigevent.de/"/>
@@ -41,21 +41,21 @@
   <!-- Blog articles -->
   <url>
     <loc>https://bigevent.de/blog/pixel-pitch-p39-vs-p4/</loc>
-    <lastmod>2025-01-01</lastmod>
+    <lastmod>2026-04-14</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
   </url>
 
   <url>
     <loc>https://bigevent.de/blog/led-wall-vs-green-screen/</loc>
-    <lastmod>2025-01-01</lastmod>
+    <lastmod>2026-04-14</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
   </url>
 
   <url>
     <loc>https://bigevent.de/blog/jak-wybrac-ekran-led-do-stoiska/</loc>
-    <lastmod>2025-01-01</lastmod>
+    <lastmod>2026-04-14</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
   </url>

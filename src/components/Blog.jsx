@@ -157,14 +157,16 @@ export default function Blog({ t, lang }) {
             const currentLang = lang || 'pl';
             const postUrl = post.id <= 2 ? `/article.html?id=${articleId}&lang=${currentLang}` : '#';
 
+            const isLive = postUrl !== '#';
             return (
-              <a 
-                href={postUrl} 
-                key={post.id} 
-                style={{ textDecoration: 'none', color: 'inherit' }}
+              <a
+                href={isLive ? postUrl : undefined}
+                key={post.id}
+                style={{ textDecoration: 'none', color: 'inherit', cursor: isLive ? 'pointer' : 'default' }}
+                aria-disabled={!isLive}
               >
                 <article
-                  className={`blog-card reveal reveal-d${i + 1}`}
+                  className={`blog-card reveal reveal-d${i + 1}${!isLive ? ' blog-card--soon' : ''}`}
                 >
                   <div className="blog-thumb">
                     <Thumb />

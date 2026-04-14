@@ -1,3 +1,34 @@
+// ── Social links — wstaw swoje URL-e ────────────────────────────────────────
+const SOCIALS = [
+  {
+    label: 'LinkedIn',
+    href: 'https://www.linkedin.com/company/bigevent',
+    icon: (
+      <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18" aria-hidden="true">
+        <path d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.95v5.66H9.36V9h3.41v1.56h.05c.47-.9 1.63-1.85 3.35-1.85 3.59 0 4.25 2.36 4.25 5.43v6.31zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zm1.78 13.02H3.56V9h3.56v11.45zM22.23 0H1.77C.8 0 0 .77 0 1.72v20.56C0 23.23.8 24 1.77 24h20.46C23.2 24 24 23.23 24 22.28V1.72C24 .77 23.2 0 22.23 0z"/>
+      </svg>
+    ),
+  },
+  {
+    label: 'Instagram',
+    href: 'https://www.instagram.com/bigevent.de',
+    icon: (
+      <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18" aria-hidden="true">
+        <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/>
+      </svg>
+    ),
+  },
+  {
+    label: 'Facebook',
+    href: 'https://www.facebook.com/bigevent.de',
+    icon: (
+      <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18" aria-hidden="true">
+        <path d="M24 12.073C24 5.405 18.627 0 12 0S0 5.405 0 12.073C0 18.1 4.388 23.094 10.125 24v-8.437H7.078v-3.49h3.047V9.41c0-3.025 1.792-4.697 4.533-4.697 1.312 0 2.686.236 2.686.236v2.97h-1.513c-1.491 0-1.956.93-1.956 1.886v2.268h3.328l-.532 3.49h-2.796V24C19.612 23.094 24 18.1 24 12.073z"/>
+      </svg>
+    ),
+  },
+];
+
 const BigEventLogoSmall = () => (
   <div className="footer-logo-wrap" style={{ display: 'flex', position: 'relative', marginLeft: '0', marginBottom: '1.5rem', alignSelf: 'flex-start' }}>
     <img
@@ -5,9 +36,10 @@ const BigEventLogoSmall = () => (
       alt="BigEvent"
       style={{ height: 60, width: 'auto', transform: 'scale(3.0)', transformOrigin: 'left center' }}
     />
-    <img 
-      src="/pictures.svg" 
-      alt="pictures" 
+    <img
+      src="/pictures.svg"
+      alt=""
+      aria-hidden="true"
       style={{ height: 66, position: 'absolute', bottom: '26px', left: '138px' }}
     />
   </div>
@@ -23,35 +55,53 @@ export default function Footer({ t, setLang, onImpressum }) {
           <div className="footer-brand">
             <BigEventLogoSmall />
             <div className="footer-tagline">{t.footer_tagline}</div>
+            {/* Social links */}
+            <div className="footer-socials">
+              {SOCIALS.map(s => (
+                <a
+                  key={s.label}
+                  href={s.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={s.label}
+                  className="footer-social-link"
+                >
+                  {s.icon}
+                </a>
+              ))}
+            </div>
           </div>
+
           <div className="footer-links">
             <div className="footer-col">
               <h5>{t.footer_col1}</h5>
               <ul>
-                <li>{t.footer_led}</li>
-                <li>{t.footer_studio}</li>
+                <li><a href="#specs"   onClick={e => { e.preventDefault(); scrollTo('specs');   }}>{t.footer_led}</a></li>
+                <li><a href="#studio"  onClick={e => { e.preventDefault(); scrollTo('studio');  }}>{t.footer_studio}</a></li>
               </ul>
             </div>
             <div className="footer-col">
               <h5>{t.footer_col2}</h5>
               <ul>
-                <li onClick={() => scrollTo('about')}>{t.footer_about}</li>
-                <li onClick={() => scrollTo('portfolio')}>{t.footer_portfolio}</li>
-                <li onClick={() => scrollTo('contact')}>{t.footer_contact_link}</li>
+                <li><a href="#about"          onClick={e => { e.preventDefault(); scrollTo('about');         }}>{t.footer_about}</a></li>
+                <li><a href="#portfolio"      onClick={e => { e.preventDefault(); scrollTo('portfolio');     }}>{t.footer_portfolio}</a></li>
+                <li><a href="#testimonials"   onClick={e => { e.preventDefault(); scrollTo('testimonials'); }}>{t.footer_testimonials}</a></li>
+                <li><a href="#contact"        onClick={e => { e.preventDefault(); scrollTo('contact');       }}>{t.footer_contact_link}</a></li>
               </ul>
             </div>
             <div className="footer-col">
               <h5>{t.footer_col3}</h5>
               <ul>
-                <li onClick={() => setLang('pl')}>Polski</li>
-                <li onClick={() => setLang('en')}>English</li>
-                <li onClick={() => setLang('de')}>Deutsch</li>
+                <li><button className="footer-lang-btn" onClick={() => setLang('pl')}>Polski</button></li>
+                <li><button className="footer-lang-btn" onClick={() => setLang('en')}>English</button></li>
+                <li><button className="footer-lang-btn" onClick={() => setLang('de')}>Deutsch</button></li>
               </ul>
             </div>
           </div>
         </div>
+
         <div className="footer-bottom">
-          <span className="footer-copy">{t.footer_copy}</span>
+          <span className="footer-copy">© {new Date().getFullYear()} BigEvent. {t.footer_rights}</span>
           <div className="footer-legal">
             <a href="#">{t.footer_privacy}</a>
             <a href="#">{t.footer_rodo}</a>

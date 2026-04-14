@@ -13,13 +13,26 @@ import Footer from './components/Footer';
 import CookieBanner from './components/CookieBanner';
 import Impressum from './components/Impressum';
 import AdminPanel from './components/AdminPanel';
+import Testimonials from './components/Testimonials';
 
 
 export default function App() {
   const [lang,          setLang]          = useState('pl');
-  const [theme,         setTheme]         = useState(() => localStorage.getItem('theme') || 'dark');
+  const [theme,         setTheme]         = useState(() => {
+    const saved = localStorage.getItem('theme');
+    if (saved) return saved;
+    // First visit: follow OS preference
+    return window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
+  });
   const [showImpressum, setShowImpressum] = useState(false);
   const [adminOpen,     setAdminOpen]     = useState(false);
+  const [scrolled,      setScrolled]      = useState(false);
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 400);
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => window.removeEventListener('scroll', onScroll);
+  }, []);
 
   const { t, overrides, saveField, resetContent, images, saveImage } = useCMS(lang);
 
@@ -76,9 +89,21 @@ export default function App() {
       <Specs t={t} />
       <Portfolio t={t} images={images} />
       <Blog t={t} lang={lang} />
+      <Testimonials t={t} images={images} />
       <About t={t} images={images} />
       <Contact t={t} />
       <Footer t={t} setLang={setLang} onImpressum={() => setShowImpressum(true)} />
+
+      {/* Back to top */}
+      <button
+        className={`back-to-top${scrolled ? ' visible' : ''}`}
+        onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+        aria-label="Wróć na górę"
+      >
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" width="18" height="18">
+          <path d="M18 15l-6-6-6 6"/>
+        </svg>
+      </button>
 
       {/* Hidden admin trigger button (bottom-right) */}
       <button

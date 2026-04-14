@@ -43,8 +43,16 @@ export default function Hero({ t }) {
     // ── CANVAS ─────────────────────────────────────
     const canvas = canvasRef.current;
     if (!canvas) return;
+
+    // Respect prefers-reduced-motion — skip animation entirely
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      canvas.style.display = 'none';
+      return () => { clearTimeout(t1); clearTimeout(t2); };
+    }
+
     const ctx = canvas.getContext('2d', { alpha: false });
     let animId, time = 0;
+    let running = true;
 
     const resize = () => {
       canvas.width  = window.innerWidth;
@@ -54,8 +62,15 @@ export default function Hero({ t }) {
     resize();
 
     const draw = () => {
+      if (!running) return;
+      // Pause when tab is hidden to save battery
+      if (document.visibilityState === 'hidden') {
+        animId = requestAnimationFrame(draw);
+        return;
+      }
+
       time += 0.012;
-      const pSize = 10, pGap = 2, totalP = 12;
+      const pSize = 10, totalP = 12;
 
       ctx.fillStyle = '#030304';
       ctx.fillRect(0, 0, canvas.width, canvas.height);
@@ -94,6 +109,7 @@ export default function Hero({ t }) {
     draw();
 
     return () => {
+      running = false;
       clearTimeout(t1);
       clearTimeout(t2);
       window.removeEventListener('resize', resize);
@@ -107,7 +123,12 @@ export default function Hero({ t }) {
       <div className="hero-sticky-container">
 
         {/* Tło – canvas LED zaczyna zgaszony, zapala się przy textIn */}
-        <canvas className={`pixel-canvas hero-canvas ${textIn ? 'powered-on' : ''}`} ref={canvasRef} />
+        <canvas
+          className={`pixel-canvas hero-canvas ${textIn ? 'powered-on' : ''}`}
+          ref={canvasRef}
+          role="img"
+          aria-label="Animowane tło z pikseli LED"
+        />
 
         {/* Grid paneli wlatujących z różnych stron */}
         <div className="hero-panels-grid">

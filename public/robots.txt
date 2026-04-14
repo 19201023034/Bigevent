@@ -1,0 +1,9 @@
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://bigevent.de/sitemap.xml
+
+# Block admin/internal paths
+Disallow: /src/
+Disallow: /?admin

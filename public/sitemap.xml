@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+
+  <!-- Homepage PL (default) -->
+  <url>
+    <loc>https://bigevent.de/</loc>
+    <lastmod>2025-01-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="pl"       href="https://bigevent.de/"/>
+    <xhtml:link rel="alternate" hreflang="en"       href="https://bigevent.de/en/"/>
+    <xhtml:link rel="alternate" hreflang="de"       href="https://bigevent.de/de/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://bigevent.de/"/>
+  </url>
+
+  <!-- Homepage EN -->
+  <url>
+    <loc>https://bigevent.de/en/</loc>
+    <lastmod>2025-01-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="pl"       href="https://bigevent.de/"/>
+    <xhtml:link rel="alternate" hreflang="en"       href="https://bigevent.de/en/"/>
+    <xhtml:link rel="alternate" hreflang="de"       href="https://bigevent.de/de/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://bigevent.de/"/>
+  </url>
+
+  <!-- Homepage DE -->
+  <url>
+    <loc>https://bigevent.de/de/</loc>
+    <lastmod>2025-01-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="pl"       href="https://bigevent.de/"/>
+    <xhtml:link rel="alternate" hreflang="en"       href="https://bigevent.de/en/"/>
+    <xhtml:link rel="alternate" hreflang="de"       href="https://bigevent.de/de/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://bigevent.de/"/>
+  </url>
+
+  <!-- Blog articles -->
+  <url>
+    <loc>https://bigevent.de/blog/pixel-pitch-p39-vs-p4/</loc>
+    <lastmod>2025-01-01</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://bigevent.de/blog/led-wall-vs-green-screen/</loc>
+    <lastmod>2025-01-01</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://bigevent.de/blog/jak-wybrac-ekran-led-do-stoiska/</loc>
+    <lastmod>2025-01-01</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+</urlset>

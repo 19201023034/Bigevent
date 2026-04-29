@@ -3,15 +3,17 @@ import { useCMS } from './hooks/useCMS';
 import Nav from './components/Nav';
 import Hero from './components/Hero';
 import Services from './components/Services';
+import CookieBanner from './components/CookieBanner';
 import Studio from './components/Studio';
 import Specs from './components/Specs';
+import LedCalculator from './components/LedCalculator';
 import Portfolio from './components/Portfolio';
 import Blog from './components/Blog';
 import About from './components/About';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
-import CookieBanner from './components/CookieBanner';
 import Impressum from './components/Impressum';
+import StudioPage from './components/StudioPage';
 import AdminPanel from './components/AdminPanel';
 import Testimonials from './components/Testimonials';
 
@@ -24,7 +26,7 @@ export default function App() {
     // First visit: follow OS preference
     return window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
   });
-  const [showImpressum, setShowImpressum] = useState(false);
+  const [currentView,   setCurrentView]   = useState('home');
   const [adminOpen,     setAdminOpen]     = useState(false);
   const [scrolled,      setScrolled]      = useState(false);
 
@@ -41,6 +43,32 @@ export default function App() {
     document.documentElement.dataset.theme = theme;
     localStorage.setItem('theme', theme);
   }, [theme]);
+
+  // Update <html lang>, <title> and <meta description> on language change
+  useEffect(() => {
+    const meta = {
+      pl: {
+        lang: 'pl',
+        title: 'BigEvent — Wynajem ekranów LED & Studio filmowe | Aachen',
+        description: 'BigEvent: wynajem ekranów LED (P1.9–P3.9) na targi, konferencje i eventy + własne studio wirtualnej produkcji 4K. Szybka wycena, transport, montaż. Aachen / Niemcy.',
+      },
+      en: {
+        lang: 'en',
+        title: 'BigEvent — LED Screen Rental & Virtual Production Studio | Aachen',
+        description: 'BigEvent: LED screen rental (P1.9–P3.9) for trade fairs, conferences and events + in-house 4K virtual production studio. Fast quote, transport, installation. Aachen, Germany.',
+      },
+      de: {
+        lang: 'de',
+        title: 'BigEvent — LED-Screen-Verleih & Virtuelle Produktion | Aachen',
+        description: 'BigEvent: LED-Screen-Verleih (P1.9–P3.9) für Messen, Konferenzen und Events + eigenes 4K Virtual-Production-Studio. Schnelles Angebot, Transport, Montage. Aachen.',
+      },
+    };
+    const m = meta[lang] || meta.pl;
+    document.documentElement.lang = m.lang;
+    document.title = m.title;
+    const desc = document.querySelector('meta[name="description"]');
+    if (desc) desc.setAttribute('content', m.description);
+  }, [lang]);
 
   // Scroll-reveal observer — disconnect fully before re-querying on lang change
   // to prevent elements being observed twice across re-runs
@@ -66,7 +94,8 @@ export default function App() {
 
   return (
     <>
-{showImpressum && <Impressum onClose={() => setShowImpressum(false)} />}
+{currentView === 'impressum' && <Impressum onClose={() => setCurrentView('home')} />}
+{currentView === 'studio' && <StudioPage t={t} onClose={() => setCurrentView('home')} />}
 
       {adminOpen && (
         <AdminPanel
@@ -85,14 +114,16 @@ export default function App() {
       <Nav lang={lang} setLang={setLang} theme={theme} toggleTheme={toggleTheme} t={t} />
       <Hero t={t} />
       <Services t={t} images={images} />
-      <Studio t={t} images={images} />
+      
+      <Studio t={t} images={images} onNavigate={() => setCurrentView('studio')} />
       <Specs t={t} />
+      <LedCalculator t={t} />
       <Portfolio t={t} images={images} />
       <Blog t={t} lang={lang} />
       <Testimonials t={t} images={images} />
       <About t={t} images={images} />
       <Contact t={t} />
-      <Footer t={t} setLang={setLang} onImpressum={() => setShowImpressum(true)} />
+      <Footer t={t} setLang={setLang} onImpressum={() => setCurrentView('impressum')} />
 
       {/* Back to top */}
       <button

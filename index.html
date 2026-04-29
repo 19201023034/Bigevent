@@ -63,8 +63,11 @@
             "@type": "ImageObject",
             "url": "https://bigevent.de/bigevent_logo.svg"
           },
+          "telephone": "+49-163-7716744",
+          "email": "info@bigevent.de",
           "contactPoint": {
             "@type": "ContactPoint",
+            "telephone": "+49-163-7716744",
             "contactType": "customer service",
             "availableLanguage": ["Polish", "English", "German"]
           },
@@ -75,7 +78,11 @@
             "postalCode": "52070",
             "addressCountry": "DE"
           },
-          "sameAs": []
+          "sameAs": [
+            "https://www.linkedin.com/company/bigevent",
+            "https://www.instagram.com/bigevent.de",
+            "https://www.facebook.com/bigevent.de"
+          ]
         },
         {
           "@type": "LocalBusiness",
@@ -83,6 +90,8 @@
           "name": "BigEvent",
           "description": "Wynajem ekranów LED na targi i eventy. Własne studio filmowe do wirtualnych produkcji.",
           "url": "https://bigevent.de",
+          "telephone": "+49-163-7716744",
+          "email": "info@bigevent.de",
           "logo": "https://bigevent.de/bigevent_logo.svg",
           "image": "https://bigevent.de/og-image.jpg",
           "address": {
@@ -299,7 +308,10 @@
     <!-- ═══ Fonts ════════════════════════════════════════════════════ -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap">
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <!-- ═══ Preload critical asset ════════════════════════════════════ -->
+    <link rel="preload" as="image" href="/og-image.jpg" fetchpriority="low">
   </head>
   <body>
     <div id="root"></div>

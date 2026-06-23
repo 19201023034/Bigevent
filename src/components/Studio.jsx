@@ -1,4 +1,4 @@
-export default function Studio({ t }) {
+export default function Studio({ t, onNavigate }) {
   const scrollTo = (id) => document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
 
   return (
@@ -45,6 +45,9 @@ export default function Studio({ t }) {
                 </div>
               </div>
             </div>
+            <button className="form-submit" style={{ width: 'auto', marginTop: '2.5rem' }} onClick={onNavigate}>
+              {t.studio_more_btn || 'Poznaj szczegóły Studia ➔'}
+            </button>
           </div>
 
           <div className="studio-scene reveal reveal-d2">

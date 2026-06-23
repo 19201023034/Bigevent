@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from 'react';
-import { scrollTo as _scrollTo } from '../utils/scrollTo';
+import { Link, useLocation } from 'react-router-dom';
 
 const BigEventLogo = ({ theme }) => (
   <img
@@ -27,13 +27,14 @@ const PicturesDoodle = ({ theme }) => (
   </span>
 );
 
-const SECTION_IDS = ['services', 'studio', 'portfolio', 'blog', 'testimonials', 'about', 'contact'];
+const SECTION_IDS = ['services', 'portfolio', 'blog', 'testimonials', 'about', 'contact'];
 
 export default function Nav({ lang, setLang, theme, toggleTheme, t }) {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [scrolled,   setScrolled]   = useState(false);
   const [activeId,   setActiveId]   = useState('');
   const observerRef = useRef(null);
+  const location = useLocation();
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 30);
@@ -41,8 +42,9 @@ export default function Nav({ lang, setLang, theme, toggleTheme, t }) {
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
-  // IntersectionObserver to track which section is in view
+  // IntersectionObserver to track which section is in view (only on homepage)
   useEffect(() => {
+    if (location.pathname !== '/') return;
     observerRef.current?.disconnect();
     observerRef.current = new IntersectionObserver(
       (entries) => {
@@ -57,41 +59,36 @@ export default function Nav({ lang, setLang, theme, toggleTheme, t }) {
       if (el) observerRef.current.observe(el);
     });
     return () => observerRef.current?.disconnect();
-  }, []);
-
-  const scrollTo = (id) => { _scrollTo(id); setMobileOpen(false); };
+  }, [location.pathname]);
 
   const links = [
-    { id: 'services',     label: t.nav_services     },
-    { id: 'studio',       label: t.nav_studio       },
-    { id: 'portfolio',    label: t.nav_portfolio    },
-    { id: 'blog',         label: t.nav_blog         },
-    { id: 'testimonials', label: t.nav_testimonials },
-    { id: 'about',        label: t.nav_about        },
-    { id: 'contact',      label: t.nav_contact      },
+    { id: 'services',     label: t.nav_services,     path: '/#services' },
+    { id: 'studio',       label: t.nav_studio,       path: '/#studio' },
+    { id: 'led-calculator', label: t.nav_calc,       path: '/#led-calculator' },
+    { id: 'portfolio',    label: t.nav_portfolio,    path: '/#portfolio' },
+    { id: 'blog',         label: t.nav_blog,         path: '/#blog' },
+    { id: 'testimonials', label: t.nav_testimonials, path: '/#testimonials' },
+    { id: 'about',        label: t.nav_about,        path: '/#about' },
+    { id: 'contact',      label: t.nav_contact,      path: '/#contact' },
   ];
 
   return (
     <>
       <nav id="main-nav" className={scrolled ? 'scrolled' : ''}>
-        <a className="nav-logo" href="#hero"
-          onClick={e => { e.preventDefault(); scrollTo('hero'); }}
-          aria-label="BigEvent home"
-        >
+        <Link className="nav-logo" to="/" aria-label="BigEvent home">
           <BigEventLogo theme={theme} />
           <PicturesDoodle theme={theme} />
-        </a>
+        </Link>
 
         <ul className="nav-links">
           {links.map(l => (
             <li key={l.id}>
-              <a
-                href={`#${l.id}`}
-                className={activeId === l.id ? 'active' : ''}
-                onClick={e => { e.preventDefault(); scrollTo(l.id); }}
+              <Link
+                to={l.path}
+                className={(activeId === l.id || location.pathname === l.path) ? 'active' : ''}
               >
                 {l.label}
-              </a>
+              </Link>
             </li>
           ))}
         </ul>
@@ -117,7 +114,7 @@ export default function Nav({ lang, setLang, theme, toggleTheme, t }) {
               </svg>
             )}
           </button>
-          <button className="btn-cta-nav" onClick={() => scrollTo('contact')}>{t.nav_cta}</button>
+          <Link className="btn-cta-nav" style={{ textDecoration: 'none' }} to="/#contact">{t.nav_cta}</Link>
           <button
             className={`hamburger${mobileOpen ? ' open' : ''}`}
             onClick={() => setMobileOpen(v => !v)}
@@ -131,11 +128,11 @@ export default function Nav({ lang, setLang, theme, toggleTheme, t }) {
       {/* Mobile menu */}
       <div className={`mobile-menu${mobileOpen ? ' open' : ''}${scrolled ? ' scrolled' : ''}`}>
         {links.map(l => (
-          <a key={l.id} href={`#${l.id}`}
-            className={activeId === l.id ? 'active' : ''}
-            onClick={e => { e.preventDefault(); scrollTo(l.id); }}>
+          <Link key={l.id} to={l.path}
+            className={(activeId === l.id || location.pathname === l.path) ? 'active' : ''}
+            onClick={() => setMobileOpen(false)}>
             {l.label}
-          </a>
+          </Link>
         ))}
         <div className="mobile-menu-footer">
           <div className="mobile-lang-switcher">

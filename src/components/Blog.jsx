@@ -1,100 +1,9 @@
-// Blog thumbnail SVGs
-function ThumbLED() {
-  return (
-    <svg viewBox="0 0 480 270" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
-      <rect width="480" height="270" fill="#060608"/>
-      <defs>
-        <radialGradient id="bg1" cx="50%" cy="50%" r="60%">
-          <stop offset="0%" stopColor="#ADD034" stopOpacity="0.12"/>
-          <stop offset="100%" stopColor="#ADD034" stopOpacity="0"/>
-        </radialGradient>
-      </defs>
-      <rect width="480" height="270" fill="url(#bg1)"/>
-      {/* LED wall grid */}
-      <rect x="40" y="30" width="400" height="180" rx="4" fill="#0A0A10"/>
-      {[0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19].map((i) => (
-        <rect key={i} x={42 + i*19} y="32" width="16" height="11" rx="1" fill="#ADD034"
-          opacity={(Math.sin(i * 1.4) * 0.3 + 0.65).toFixed(2)}/>
-      ))}
-      {[43,55,67,79,91,103,115,127].map((y, i) => (
-        <rect key={i} x="42" y={y} width="396" height="11" rx="1" fill="#ADD034"
-          opacity={(0.07 - i*0.008).toFixed(3)}/>
-      ))}
-      <text x="240" y="140" textAnchor="middle" fontSize="28" fill="#ADD034" opacity="0.10"
-        fontFamily="Syne,sans-serif" fontWeight="800" letterSpacing="8">LED WALL</text>
-      <rect x="40" y="30" width="400" height="180" rx="4" fill="none" stroke="#ADD034" strokeWidth="0.6" opacity="0.2"/>
-      {/* Floor */}
-      <rect x="40" y="215" width="400" height="6" rx="2" fill="#ADD034" opacity="0.05"/>
-      <text x="240" y="255" textAnchor="middle" fontSize="9" fill="#ADD034" opacity="0.25"
-        fontFamily="Syne,sans-serif" letterSpacing="4">PIXEL PITCH · TRADE FAIR · LED</text>
-    </svg>
-  );
-}
+import { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 
-function ThumbVP() {
-  return (
-    <svg viewBox="0 0 480 270" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
-      <rect width="480" height="270" fill="#040406"/>
-      <defs>
-        <radialGradient id="bg2" cx="50%" cy="50%" r="55%">
-          <stop offset="0%" stopColor="#ADD034" stopOpacity="0.15"/>
-          <stop offset="100%" stopColor="#ADD034" stopOpacity="0"/>
-        </radialGradient>
-      </defs>
-      <rect width="480" height="270" fill="url(#bg2)"/>
-      <rect x="30" y="25" width="420" height="170" rx="5" fill="#060612"/>
-      <rect x="32" y="27" width="416" height="166" rx="4" fill="#ADD034" opacity="0.04"/>
-      <text x="240" y="122" textAnchor="middle" fontSize="18" fill="#ADD034" opacity="0.18"
-        fontFamily="Syne,sans-serif" fontWeight="800" letterSpacing="6">VIRTUAL PRODUCTION</text>
-      <rect x="30" y="25" width="420" height="170" rx="5" fill="none" stroke="#ADD034" strokeWidth="0.7" opacity="0.22"/>
-      {/* Camera */}
-      <rect x="195" y="205" width="90" height="45" rx="5" fill="#111" stroke="#2A2A2A" strokeWidth="0.8"/>
-      <circle cx="240" cy="227" r="16" fill="#0A0A0A" stroke="#ADD034" strokeWidth="0.6" opacity="0.5"/>
-      <circle cx="240" cy="227" r="9" fill="#060606"/>
-      <circle cx="240" cy="227" r="4" fill="#020202"/>
-      <line x1="240" y1="250" x2="222" y2="268" stroke="#222" strokeWidth="2" strokeLinecap="round"/>
-      <line x1="240" y1="250" x2="240" y2="270" stroke="#222" strokeWidth="2" strokeLinecap="round"/>
-      <line x1="240" y1="250" x2="258" y2="268" stroke="#222" strokeWidth="2" strokeLinecap="round"/>
-      <circle cx="272" cy="211" r="5" fill="#FF3B30" opacity="0.9"/>
-    </svg>
-  );
-}
-
-function ThumbExpo() {
-  return (
-    <svg viewBox="0 0 480 270" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
-      <rect width="480" height="270" fill="#050505"/>
-      <defs>
-        <radialGradient id="bg3" cx="50%" cy="60%" r="50%">
-          <stop offset="0%" stopColor="#ADD034" stopOpacity="0.10"/>
-          <stop offset="100%" stopColor="#ADD034" stopOpacity="0"/>
-        </radialGradient>
-      </defs>
-      <rect width="480" height="270" fill="url(#bg3)"/>
-      {/* Expo hall columns */}
-      {[60,160,260,360].map((x, i) => (
-        <rect key={i} x={x} y="20" width="8" height="200" rx="2" fill="#ADD034" opacity="0.06"/>
-      ))}
-      {/* Booth */}
-      <rect x="80" y="60" width="320" height="150" rx="4" fill="#0A0A0C"/>
-      <rect x="80" y="60" width="320" height="8" rx="1" fill="#ADD034" opacity="0.5"/>
-      <rect x="80" y="60" width="8" height="150" rx="1" fill="#ADD034" opacity="0.3"/>
-      <rect x="392" y="60" width="8" height="150" rx="1" fill="#ADD034" opacity="0.3"/>
-      {/* Screen on booth */}
-      <rect x="140" y="80" width="200" height="100" rx="3" fill="#060608"/>
-      <rect x="140" y="80" width="200" height="100" rx="3" fill="#ADD034" opacity="0.05"/>
-      <text x="240" y="136" textAnchor="middle" fontSize="12" fill="#ADD034" opacity="0.2"
-        fontFamily="Syne,sans-serif" fontWeight="700" letterSpacing="2">EXPO 2025</text>
-      <rect x="140" y="80" width="200" height="100" rx="3" fill="none" stroke="#ADD034" strokeWidth="0.5" opacity="0.2"/>
-      {/* Table */}
-      <rect x="120" y="215" width="240" height="8" rx="2" fill="#1A1A1A"/>
-      <rect x="150" y="223" width="5" height="30" rx="1" fill="#1A1A1A"/>
-      <rect x="325" y="223" width="5" height="30" rx="1" fill="#1A1A1A"/>
-      <text x="240" y="258" textAnchor="middle" fontSize="9" fill="#ADD034" opacity="0.22"
-        fontFamily="Syne,sans-serif" letterSpacing="3">EXHIBITION · STAND · DISPLAY</text>
-    </svg>
-  );
-}
+const ThumbImg = ({ src, alt }) => (
+  <img src={src} alt={alt || ''} style={{ width: '100%', height: '100%', objectFit: 'cover' }} loading="lazy" />
+);
 
 const BLOG_POSTS = [
   {
@@ -105,8 +14,7 @@ const BLOG_POSTS = [
     date: '10.04.2026',
     readKey: 'blog_read_min',
     readVal: '8',
-    Thumb: ThumbLED,
-    url: '/blog-broadcast-led.html'
+    Thumb: ({ alt }) => <ThumbImg src="/blog-p1-hero.jpg" alt={alt} />,
   },
   {
     id: 2,
@@ -116,8 +24,7 @@ const BLOG_POSTS = [
     date: '28.02.2025',
     readKey: 'blog_read_min',
     readVal: '7',
-    Thumb: ThumbVP,
-    url: '#'
+    Thumb: ({ alt }) => <ThumbImg src="/blog-p3-hero.jpg" alt={alt} />,
   },
   {
     id: 3,
@@ -127,12 +34,172 @@ const BLOG_POSTS = [
     date: '10.01.2025',
     readKey: 'blog_read_min',
     readVal: '4',
-    Thumb: ThumbExpo,
-    url: '#'
+    Thumb: ({ alt }) => <ThumbImg src="/blog-p2-hero.jpg" alt={alt} />,
+  },
+  {
+    id: 4,
+    catKey: 'blog4_cat',
+    titleKey: 'blog4_title',
+    excerptKey: 'blog4_excerpt',
+    date: '29.04.2026',
+    readKey: 'blog_read_min',
+    readVal: '5',
+    Thumb: ({ alt }) => <ThumbImg src="/blog-pseo1-hero.jpg" alt={alt} />,
+  },
+  {
+    id: 5,
+    catKey: 'blog5_cat',
+    titleKey: 'blog5_title',
+    excerptKey: 'blog5_excerpt',
+    date: '29.04.2026',
+    readKey: 'blog_read_min',
+    readVal: '4',
+    Thumb: ({ alt }) => <ThumbImg src="/blog-pseo2-hero.jpg" alt={alt} />,
+  },
+  {
+    id: 6,
+    catKey: 'blog6_cat',
+    titleKey: 'blog6_title',
+    excerptKey: 'blog6_excerpt',
+    date: '29.04.2026',
+    readKey: 'blog_read_min',
+    readVal: '6',
+    Thumb: ({ alt }) => <ThumbImg src="/blog-pseo3-hero.jpg" alt={alt} />,
+  },
+  {
+    id: 7,
+    catKey: 'blog7_cat',
+    titleKey: 'blog7_title',
+    excerptKey: 'blog7_excerpt',
+    date: '29.04.2026',
+    readKey: 'blog_read_min',
+    readVal: '5',
+    Thumb: ({ alt }) => <ThumbImg src="/blog-pseo4-hero.jpg" alt={alt} />,
+  },
+  {
+    id: 8,
+    catKey: 'blog8_cat',
+    titleKey: 'blog8_title',
+    excerptKey: 'blog8_excerpt',
+    date: '27.05.2026',
+    readKey: 'blog_read_min',
+    readVal: '6',
+    Thumb: ({ alt }) => <ThumbImg src="/blog-p4-hero.jpg" alt={alt} />,
+  },
+  {
+    id: 9,
+    catKey: 'blog9_cat',
+    titleKey: 'blog9_title',
+    excerptKey: 'blog9_excerpt',
+    date: '27.05.2026',
+    readKey: 'blog_read_min',
+    readVal: '7',
+    Thumb: ({ alt }) => <ThumbImg src="/blog-p5-hero.jpg" alt={alt} />,
+  },
+  {
+    id: 10,
+    catKey: 'blog10_cat',
+    titleKey: 'blog10_title',
+    excerptKey: 'blog10_excerpt',
+    date: '27.05.2026',
+    readKey: 'blog_read_min',
+    readVal: '5',
+    Thumb: ({ alt }) => <ThumbImg src="/blog-p6-hero.jpg" alt={alt} />,
+  },
+  {
+    id: 11,
+    catKey: 'blog11_cat',
+    titleKey: 'blog11_title',
+    excerptKey: 'blog11_excerpt',
+    date: '27.05.2026',
+    readKey: 'blog_read_min',
+    readVal: '6',
+    Thumb: ({ alt }) => <ThumbImg src="/blog-p7-hero.jpg" alt={alt} />,
+  },
+  {
+    id: 12,
+    catKey: 'blog12_cat',
+    titleKey: 'blog12_title',
+    excerptKey: 'blog12_excerpt',
+    date: '27.05.2026',
+    readKey: 'blog_read_min',
+    readVal: '5',
+    Thumb: ({ alt }) => <ThumbImg src="/blog-p8-hero.jpg" alt={alt} />,
+  },
+  {
+    id: 13,
+    catKey: 'blog13_cat',
+    titleKey: 'blog13_title',
+    excerptKey: 'blog13_excerpt',
+    date: '27.05.2026',
+    readKey: 'blog_read_min',
+    readVal: '5',
+    Thumb: ({ alt }) => <ThumbImg src="/blog-p9-hero.jpg" alt={alt} />,
+  },
+  {
+    id: 14,
+    catKey: 'blog14_cat',
+    titleKey: 'blog14_title',
+    excerptKey: 'blog14_excerpt',
+    date: '27.05.2026',
+    readKey: 'blog_read_min',
+    readVal: '6',
+    Thumb: ({ alt }) => <ThumbImg src="/blog-p10-hero.jpg" alt={alt} />,
+  },
+  {
+    id: 15,
+    catKey: 'blog15_cat',
+    titleKey: 'blog15_title',
+    excerptKey: 'blog15_excerpt',
+    date: '27.05.2026',
+    readKey: 'blog_read_min',
+    readVal: '7',
+    Thumb: ({ alt }) => <ThumbImg src="/blog-p11-hero.jpg" alt={alt} />,
+  },
+  {
+    id: 16,
+    catKey: 'blog16_cat',
+    titleKey: 'blog16_title',
+    excerptKey: 'blog16_excerpt',
+    date: '27.05.2026',
+    readKey: 'blog_read_min',
+    readVal: '5',
+    Thumb: ({ alt }) => <ThumbImg src="/blog-p12-hero.jpg" alt={alt} />,
+  },
+  {
+    id: 17,
+    catKey: 'blog17_cat',
+    titleKey: 'blog17_title',
+    excerptKey: 'blog17_excerpt',
+    date: '27.05.2026',
+    readKey: 'blog_read_min',
+    readVal: '6',
+    Thumb: ({ alt }) => <ThumbImg src="/blog-p13-hero.jpg" alt={alt} />,
+  },
+  {
+    id: 18,
+    catKey: 'blog18_cat',
+    titleKey: 'blog18_title',
+    excerptKey: 'blog18_excerpt',
+    date: '27.05.2026',
+    readKey: 'blog_read_min',
+    readVal: '5',
+    Thumb: ({ alt }) => <ThumbImg src="/blog-p14-hero.jpg" alt={alt} />,
   },
 ];
 
 export default function Blog({ t, lang }) {
+  const [showAll, setShowAll] = useState(false);
+  const displayedPosts = showAll ? BLOG_POSTS : BLOG_POSTS.slice(0, 3);
+
+  useEffect(() => {
+    if (showAll) {
+      setTimeout(() => {
+        document.querySelectorAll('#blog .reveal').forEach(el => el.classList.add('visible'));
+      }, 50);
+    }
+  }, [showAll]);
+
   return (
     <section id="blog">
       <div className="container">
@@ -145,31 +212,51 @@ export default function Blog({ t, lang }) {
         </div>
 
         <div className="blog-grid">
-          {BLOG_POSTS.map((post, i) => {
+          {displayedPosts.map((post, i) => {
             const { Thumb } = post;
-            
-            // Map the blog post id to the correct markdown id
+
+            // Map the blog post id to the correct markdown slug (React Router)
             let articleId = '';
             if (post.id === 1) articleId = 'p1';
             else if (post.id === 2) articleId = 'p3';
-            else articleId = 'p1'; // fallback or placeholder logic
+            else if (post.id === 3) articleId = 'p2';
+            else if (post.id === 4) articleId = 'p-seo-1-de';
+            else if (post.id === 5) articleId = 'p-seo-2-de';
+            else if (post.id === 6) articleId = 'p-seo-3-de';
+            else if (post.id === 7) articleId = 'p-seo-4-de';
+            else if (post.id === 8) articleId = 'p4';
+            else if (post.id === 9) articleId = 'p5';
+            else if (post.id === 10) articleId = 'p6';
+            else if (post.id === 11) articleId = 'p7';
+            else if (post.id === 12) articleId = 'p8';
+            else if (post.id === 13) articleId = 'p9';
+            else if (post.id === 14) articleId = 'p10';
+            else if (post.id === 15) articleId = 'p11';
+            else if (post.id === 16) articleId = 'p12';
+            else if (post.id === 17) articleId = 'p13';
+            else if (post.id === 18) articleId = 'p14';
+            else articleId = 'p1';
 
-            const currentLang = lang || 'pl';
-            const postUrl = post.id <= 2 ? `/article.html?id=${articleId}&lang=${currentLang}` : '#';
+            // Use article title as SEO-friendly alt text for thumbnail images
+            const imgAlt = t[post.titleKey] || '';
 
-            const isLive = postUrl !== '#';
+            const isLive = post.id === 1 || post.id === 2 || post.id === 3 || post.id >= 4;
+            const postUrl = isLive ? `${lang === 'pl' ? '' : `/${lang}`}/blog/${articleId}` : '#';
             return (
-              <a
-                href={isLive ? postUrl : undefined}
+              <Link
+                to={postUrl}
                 key={post.id}
                 style={{ textDecoration: 'none', color: 'inherit', cursor: isLive ? 'pointer' : 'default' }}
+                onClick={(e) => {
+                  if (!isLive) e.preventDefault();
+                }}
                 aria-disabled={!isLive}
               >
                 <article
                   className={`blog-card reveal reveal-d${i + 1}${!isLive ? ' blog-card--soon' : ''}`}
                 >
                   <div className="blog-thumb">
-                    <Thumb />
+                    <Thumb alt={imgAlt} />
                   </div>
                   <div className="blog-body">
                     <div className="blog-cat">{t[post.catKey]}</div>
@@ -186,10 +273,42 @@ export default function Blog({ t, lang }) {
                     </div>
                   </div>
                 </article>
-              </a>
+              </Link>
             );
           })}
         </div>
+
+        {!showAll && BLOG_POSTS.length > 3 && (
+          <div style={{ textAlign: 'center', marginTop: '50px' }} className="reveal reveal-d3">
+            <button 
+              onClick={() => setShowAll(true)} 
+              style={{ 
+                padding: '14px 36px', 
+                cursor: 'pointer', 
+                background: 'transparent', 
+                color: 'var(--lime)', 
+                border: '1px solid var(--lime)', 
+                borderRadius: '40px', 
+                fontFamily: 'Syne, sans-serif', 
+                fontWeight: '600', 
+                letterSpacing: '0.04em', 
+                fontSize: '14px',
+                transition: 'all 0.3s ease'
+              }}
+              onMouseOver={(e) => {
+                e.target.style.background = 'var(--lime)';
+                e.target.style.color = '#000';
+              }}
+              onMouseOut={(e) => {
+                e.target.style.background = 'transparent';
+                e.target.style.color = 'var(--lime)';
+              }}
+            >
+              {t.blog_read_more}
+            </button>
+          </div>
+        )}
+
       </div>
     </section>
   );

@@ -1,34 +1,61 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useMemo } from 'react';
+import { Routes, Route, useLocation, useNavigate } from 'react-router-dom';
+import { Helmet } from 'react-helmet-async';
 import { useCMS } from './hooks/useCMS';
 import Nav from './components/Nav';
-import Hero from './components/Hero';
-import Services from './components/Services';
 import CookieBanner from './components/CookieBanner';
-import Studio from './components/Studio';
-import Specs from './components/Specs';
-import LedCalculator from './components/LedCalculator';
-import Portfolio from './components/Portfolio';
-import Blog from './components/Blog';
-import About from './components/About';
-import Contact from './components/Contact';
 import Footer from './components/Footer';
 import Impressum from './components/Impressum';
-import StudioPage from './components/StudioPage';
 import AdminPanel from './components/AdminPanel';
-import Testimonials from './components/Testimonials';
 
+// Pages
+import Home from './pages/Home';
+import Rental from './pages/Rental';
+import Studio from './pages/Studio';
+import Article from './pages/Article';
+
+function ScrollToTop() {
+  const { pathname, hash } = useLocation();
+
+  useEffect(() => {
+    if (!hash) {
+      window.scrollTo(0, 0);
+    } else {
+      setTimeout(() => {
+        const id = hash.replace('#', '');
+        const element = document.getElementById(id);
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth' });
+        }
+      }, 100);
+    }
+  }, [pathname, hash]);
+
+  return null;
+}
+
+// Derive language from pathname — no useState needed
+function getLangFromPath(path) {
+  const parts = path.split('/');
+  if (parts[1] === 'en') return 'en';
+  if (parts[1] === 'de') return 'de';
+  return 'pl';
+}
 
 export default function App() {
-  const [lang,          setLang]          = useState('pl');
-  const [theme,         setTheme]         = useState(() => {
+  const location = useLocation();
+  const navigate = useNavigate();
+
+  // lang is derived purely from the URL — no state required
+  const lang = getLangFromPath(location.pathname);
+
+  const [theme, setTheme] = useState(() => {
     const saved = localStorage.getItem('theme');
     if (saved) return saved;
-    // First visit: follow OS preference
     return window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
   });
-  const [currentView,   setCurrentView]   = useState('home');
-  const [adminOpen,     setAdminOpen]     = useState(false);
-  const [scrolled,      setScrolled]      = useState(false);
+  const [adminOpen, setAdminOpen] = useState(false);
+  const [scrolled,  setScrolled]  = useState(false);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 400);
@@ -36,52 +63,80 @@ export default function App() {
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
+  const handleLangChange = (newLang) => {
+    const currentPath = location.pathname;
+
+    // Strip existing language prefix
+    let cleanPath = currentPath;
+    if (currentPath.startsWith('/en')) {
+      cleanPath = currentPath.substring(3);
+    } else if (currentPath.startsWith('/de')) {
+      cleanPath = currentPath.substring(3);
+    }
+
+    if (!cleanPath.startsWith('/')) {
+      cleanPath = '/' + cleanPath;
+    }
+
+    let newPath;
+    if (newLang === 'en') {
+      newPath = '/en' + (cleanPath === '/' ? '' : cleanPath);
+    } else if (newLang === 'de') {
+      newPath = '/de' + (cleanPath === '/' ? '' : cleanPath);
+    } else {
+      newPath = cleanPath;
+    }
+
+    newPath = newPath.replace(/\/+/g, '/');
+    if (newPath === '') newPath = '/';
+    if (location.search) newPath += location.search;
+    if (location.hash)   newPath += location.hash;
+
+    navigate(newPath);
+  };
+
   const { t, overrides, saveField, resetContent, images, saveImage } = useCMS(lang);
 
-  // Apply theme
   useEffect(() => {
     document.documentElement.dataset.theme = theme;
     localStorage.setItem('theme', theme);
   }, [theme]);
 
-  // Update <html lang>, <title> and <meta description> on language change
-  useEffect(() => {
-    const meta = {
-      pl: {
-        lang: 'pl',
-        title: 'BigEvent — Wynajem ekranów LED & Studio filmowe | Aachen',
-        description: 'BigEvent: wynajem ekranów LED (P1.9–P3.9) na targi, konferencje i eventy + własne studio wirtualnej produkcji 4K. Szybka wycena, transport, montaż. Aachen / Niemcy.',
-      },
-      en: {
-        lang: 'en',
-        title: 'BigEvent — LED Screen Rental & Virtual Production Studio | Aachen',
-        description: 'BigEvent: LED screen rental (P1.9–P3.9) for trade fairs, conferences and events + in-house 4K virtual production studio. Fast quote, transport, installation. Aachen, Germany.',
-      },
-      de: {
-        lang: 'de',
-        title: 'BigEvent — LED-Screen-Verleih & Virtuelle Produktion | Aachen',
-        description: 'BigEvent: LED-Screen-Verleih (P1.9–P3.9) für Messen, Konferenzen und Events + eigenes 4K Virtual-Production-Studio. Schnelles Angebot, Transport, Montage. Aachen.',
-      },
-    };
-    const m = meta[lang] || meta.pl;
-    document.documentElement.lang = m.lang;
-    document.title = m.title;
-    const desc = document.querySelector('meta[name="description"]');
-    if (desc) desc.setAttribute('content', m.description);
-  }, [lang]);
+  const meta = useMemo(() => ({
+    pl: {
+      lang: 'pl',
+      title: 'BigEvent — Wynajem ekranów LED & Studio filmowe | Aachen',
+      description: 'BigEvent: wynajem ekranów LED (P1.9–P3.9) na targi, konferencje i eventy + własne studio wirtualnej produkcji 4K. Szybka wycena, transport, montaż. Aachen / Niemcy.',
+    },
+    en: {
+      lang: 'en',
+      title: 'BigEvent — LED Screen Rental & Virtual Production Studio | Aachen',
+      description: 'BigEvent: LED screen rental (P1.9–P3.9) for trade fairs, conferences and events + in-house 4K virtual production studio. Fast quote, transport, installation. Aachen, Germany.',
+    },
+    de: {
+      lang: 'de',
+      title: 'BigEvent — LED-Screen-Verleih & Virtuelle Produktion | Aachen',
+      description: 'BigEvent: LED-Screen-Verleih (P1.9–P3.9) für Messen, Konferenzen und Events + eigenes 4K Virtual-Production-Studio. Schnelles Angebot, Transport, Montage. Aachen.',
+    },
+  }), []);
 
-  // Scroll-reveal observer — disconnect fully before re-querying on lang change
-  // to prevent elements being observed twice across re-runs
+  // Sync html lang attribute directly from derived lang — no setState in effect
   useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); }),
-      { threshold: 0.1, rootMargin: '0px 0px -40px 0px' }
-    );
-    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-    return () => observer.disconnect();
-  }, [lang]);
+    document.documentElement.lang = meta[lang]?.lang ?? 'pl';
+  }, [lang, meta]);
 
-  // Keyboard shortcut: Alt+Shift+A → open admin
+  useEffect(() => {
+    const timeout = setTimeout(() => {
+      const observer = new IntersectionObserver(
+        (entries) => entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); }),
+        { threshold: 0.1, rootMargin: '0px 0px -40px 0px' }
+      );
+      document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+      return () => observer.disconnect();
+    }, 100);
+    return () => clearTimeout(timeout);
+  }, [lang, location.pathname]);
+
   useEffect(() => {
     const onKey = (e) => {
       if (e.altKey && e.shiftKey && e.key === 'A') setAdminOpen(o => !o);
@@ -91,11 +146,19 @@ export default function App() {
   }, []);
 
   const toggleTheme = () => setTheme(prev => prev === 'dark' ? 'light' : 'dark');
+  const currentMeta = meta[lang] ?? meta.pl;
 
   return (
     <>
-{currentView === 'impressum' && <Impressum onClose={() => setCurrentView('home')} />}
-{currentView === 'studio' && <StudioPage t={t} onClose={() => setCurrentView('home')} />}
+      <ScrollToTop />
+      <Helmet>
+        <html lang={lang} />
+        <title>{currentMeta.title}</title>
+        <meta name="description" content={currentMeta.description} />
+        {(location.pathname === '/' || location.pathname === '/en' || location.pathname === '/de') && (
+          <link rel="canonical" href={`https://bigevent.de${lang === 'pl' ? '' : `/${lang}`}/`} />
+        )}
+      </Helmet>
 
       {adminOpen && (
         <AdminPanel
@@ -111,19 +174,32 @@ export default function App() {
       )}
 
       <CookieBanner t={t} />
-      <Nav lang={lang} setLang={setLang} theme={theme} toggleTheme={toggleTheme} t={t} />
-      <Hero t={t} />
-      <Services t={t} images={images} />
-      
-      <Studio t={t} images={images} onNavigate={() => setCurrentView('studio')} />
-      <Specs t={t} />
-      <LedCalculator t={t} />
-      <Portfolio t={t} images={images} />
-      <Blog t={t} lang={lang} />
-      <Testimonials t={t} images={images} />
-      <About t={t} images={images} />
-      <Contact t={t} />
-      <Footer t={t} setLang={setLang} onImpressum={() => setCurrentView('impressum')} />
+      <Nav lang={lang} setLang={handleLangChange} theme={theme} toggleTheme={toggleTheme} t={t} />
+
+      <Routes>
+        {/* PL Routes (default) */}
+        <Route path="/" element={<Home t={t} images={images} lang={lang} />} />
+        <Route path="/wynajem-ekranow-led" element={<Rental t={t} lang={lang} />} />
+        <Route path="/studio-wirtualnej-produkcji" element={<Studio t={t} images={images} lang={lang} />} />
+        <Route path="/blog/:slug" element={<Article lang={lang} />} />
+        <Route path="/impressum" element={<Impressum onClose={() => window.history.back()} />} />
+
+        {/* EN Routes */}
+        <Route path="/en" element={<Home t={t} images={images} lang={lang} />} />
+        <Route path="/en/wynajem-ekranow-led" element={<Rental t={t} lang={lang} />} />
+        <Route path="/en/studio-wirtualnej-produkcji" element={<Studio t={t} images={images} lang={lang} />} />
+        <Route path="/en/blog/:slug" element={<Article lang={lang} />} />
+        <Route path="/en/impressum" element={<Impressum onClose={() => window.history.back()} />} />
+
+        {/* DE Routes */}
+        <Route path="/de" element={<Home t={t} images={images} lang={lang} />} />
+        <Route path="/de/wynajem-ekranow-led" element={<Rental t={t} lang={lang} />} />
+        <Route path="/de/studio-wirtualnej-produkcji" element={<Studio t={t} images={images} lang={lang} />} />
+        <Route path="/de/blog/:slug" element={<Article lang={lang} />} />
+        <Route path="/de/impressum" element={<Impressum onClose={() => window.history.back()} />} />
+      </Routes>
+
+      <Footer t={t} setLang={handleLangChange} />
 
       {/* Back to top */}
       <button

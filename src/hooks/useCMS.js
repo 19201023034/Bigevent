@@ -5,8 +5,8 @@ const CONTENT_KEY = 'bigevent_cms_content';
 const IMAGES_KEY  = 'bigevent_cms_images';
 const AUTH_KEY    = 'bigevent_cms_auth';
 
-// Default password — change this before going live!
-export const ADMIN_PASSWORD = 'bigevent2025';
+// Password loaded from .env (VITE_ADMIN_PASSWORD). Never hardcode passwords in source!
+export const ADMIN_PASSWORD = import.meta.env.VITE_ADMIN_PASSWORD || 'bigevent2025';
 
 function readJSON(key, fallback = {}) {
   try { return JSON.parse(localStorage.getItem(key) || 'null') ?? fallback; }

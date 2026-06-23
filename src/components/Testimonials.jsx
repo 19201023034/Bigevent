@@ -6,7 +6,7 @@ const TESTIMONIALS = [
 
 function Avatar({ src, name }) {
   if (src) {
-    return <img src={src} alt={name} className="testi-avatar" />;
+    return <img src={src} alt={name} className="testi-avatar" loading="lazy" />;
   }
   // initials fallback
   const initials = name.split(' ').map(w => w[0]).slice(0, 2).join('');

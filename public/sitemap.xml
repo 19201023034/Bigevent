@@ -2,62 +2,399 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:xhtml="http://www.w3.org/1999/xhtml">
 
-  <!-- Homepage PL (default) -->
+  <!-- ═══ Homepage (PL — default) ═══════════════════════════════════ -->
   <url>
     <loc>https://bigevent.de/</loc>
-    <lastmod>2026-04-14</lastmod>
+    <lastmod>2026-05-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
-    <xhtml:link rel="alternate" hreflang="pl"       href="https://bigevent.de/"/>
-    <xhtml:link rel="alternate" hreflang="en"       href="https://bigevent.de/en/"/>
-    <xhtml:link rel="alternate" hreflang="de"       href="https://bigevent.de/de/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://bigevent.de/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://bigevent.de/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://bigevent.de/en" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://bigevent.de/de" />
+  </url>
+  <url>
+    <loc>https://bigevent.de/en</loc>
+    <lastmod>2026-05-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://bigevent.de/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://bigevent.de/en" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://bigevent.de/de" />
+  </url>
+  <url>
+    <loc>https://bigevent.de/de</loc>
+    <lastmod>2026-05-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://bigevent.de/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://bigevent.de/en" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://bigevent.de/de" />
   </url>
 
-  <!-- Homepage EN -->
+  <!-- ═══ Wynajem Ekranów LED ════════════════════════════════════════ -->
   <url>
-    <loc>https://bigevent.de/en/</loc>
-    <lastmod>2026-04-14</lastmod>
+    <loc>https://bigevent.de/wynajem-ekranow-led</loc>
+    <lastmod>2026-05-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
-    <xhtml:link rel="alternate" hreflang="pl"       href="https://bigevent.de/"/>
-    <xhtml:link rel="alternate" hreflang="en"       href="https://bigevent.de/en/"/>
-    <xhtml:link rel="alternate" hreflang="de"       href="https://bigevent.de/de/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://bigevent.de/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://bigevent.de/wynajem-ekranow-led" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://bigevent.de/en/wynajem-ekranow-led" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://bigevent.de/de/wynajem-ekranow-led" />
   </url>
-
-  <!-- Homepage DE -->
   <url>
-    <loc>https://bigevent.de/de/</loc>
-    <lastmod>2026-04-14</lastmod>
+    <loc>https://bigevent.de/en/wynajem-ekranow-led</loc>
+    <lastmod>2026-05-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
-    <xhtml:link rel="alternate" hreflang="pl"       href="https://bigevent.de/"/>
-    <xhtml:link rel="alternate" hreflang="en"       href="https://bigevent.de/en/"/>
-    <xhtml:link rel="alternate" hreflang="de"       href="https://bigevent.de/de/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://bigevent.de/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://bigevent.de/wynajem-ekranow-led" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://bigevent.de/en/wynajem-ekranow-led" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://bigevent.de/de/wynajem-ekranow-led" />
+  </url>
+  <url>
+    <loc>https://bigevent.de/de/wynajem-ekranow-led</loc>
+    <lastmod>2026-05-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://bigevent.de/wynajem-ekranow-led" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://bigevent.de/en/wynajem-ekranow-led" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://bigevent.de/de/wynajem-ekranow-led" />
   </url>
 
-  <!-- Blog articles -->
+  <!-- ═══ Studio Wirtualnej Produkcji ═══════════════════════════════ -->
   <url>
-    <loc>https://bigevent.de/blog/pixel-pitch-p39-vs-p4/</loc>
-    <lastmod>2026-04-14</lastmod>
+    <loc>https://bigevent.de/studio-wirtualnej-produkcji</loc>
+    <lastmod>2026-05-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://bigevent.de/studio-wirtualnej-produkcji" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://bigevent.de/en/studio-wirtualnej-produkcji" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://bigevent.de/de/studio-wirtualnej-produkcji" />
+  </url>
+  <url>
+    <loc>https://bigevent.de/en/studio-wirtualnej-produkcji</loc>
+    <lastmod>2026-05-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://bigevent.de/studio-wirtualnej-produkcji" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://bigevent.de/en/studio-wirtualnej-produkcji" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://bigevent.de/de/studio-wirtualnej-produkcji" />
+  </url>
+  <url>
+    <loc>https://bigevent.de/de/studio-wirtualnej-produkcji</loc>
+    <lastmod>2026-05-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://bigevent.de/studio-wirtualnej-produkcji" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://bigevent.de/en/studio-wirtualnej-produkcji" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://bigevent.de/de/studio-wirtualnej-produkcji" />
+  </url>
+
+  <!-- ═══ Blog — artykuły ════════════════════════════════════════════ -->
+  
+  <!-- p1: Pixel pitch P3.9 vs P4 / LED Broadcast Standard -->
+  <url>
+    <loc>https://bigevent.de/blog/p1</loc>
+    <lastmod>2026-05-27</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://bigevent.de/en/blog/p1</loc>
+    <lastmod>2026-05-27</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://bigevent.de/de/blog/p1</loc>
+    <lastmod>2026-05-27</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
   </url>
 
+  <!-- p2: Jak wybrać ekran LED do stoiska wystawienniczego -->
   <url>
-    <loc>https://bigevent.de/blog/led-wall-vs-green-screen/</loc>
-    <lastmod>2026-04-14</lastmod>
+    <loc>https://bigevent.de/blog/p2</loc>
+    <lastmod>2026-05-27</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://bigevent.de/en/blog/p2</loc>
+    <lastmod>2026-05-27</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://bigevent.de/de/blog/p2</loc>
+    <lastmod>2026-05-27</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
   </url>
 
+  <!-- p3: Zewnętrzny Ekran LED Black-SMD / LED wall vs green screen -->
   <url>
-    <loc>https://bigevent.de/blog/jak-wybrac-ekran-led-do-stoiska/</loc>
-    <lastmod>2026-04-14</lastmod>
+    <loc>https://bigevent.de/blog/p3</loc>
+    <lastmod>2026-05-27</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://bigevent.de/en/blog/p3</loc>
+    <lastmod>2026-05-27</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://bigevent.de/de/blog/p3</loc>
+    <lastmod>2026-05-27</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- p4: Wynajem ekranów LED na targi w Kolonii i Düsseldorfie -->
+  <url>
+    <loc>https://bigevent.de/blog/p4</loc>
+    <lastmod>2026-05-27</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://bigevent.de/en/blog/p4</loc>
+    <lastmod>2026-05-27</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://bigevent.de/de/blog/p4</loc>
+    <lastmod>2026-05-27</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- p5: Wirtualne studio LED vs. Green Screen -->
+  <url>
+    <loc>https://bigevent.de/blog/p5</loc>
+    <lastmod>2026-05-27</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://bigevent.de/en/blog/p5</loc>
+    <lastmod>2026-05-27</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://bigevent.de/de/blog/p5</loc>
+    <lastmod>2026-05-27</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- p6: Co to jest Pixel Pitch -->
+  <url>
+    <loc>https://bigevent.de/blog/p6</loc>
+    <lastmod>2026-05-27</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://bigevent.de/en/blog/p6</loc>
+    <lastmod>2026-05-27</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://bigevent.de/de/blog/p6</loc>
+    <lastmod>2026-05-27</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- p7: Ile kosztuje wynajem ekranu LED -->
+  <url>
+    <loc>https://bigevent.de/blog/p7</loc>
+    <lastmod>2026-05-27</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://bigevent.de/en/blog/p7</loc>
+    <lastmod>2026-05-27</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://bigevent.de/de/blog/p7</loc>
+    <lastmod>2026-05-27</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- p8: LED vs Projektor -->
+  <url>
+    <loc>https://bigevent.de/blog/p8</loc>
+    <lastmod>2026-05-27</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://bigevent.de/en/blog/p8</loc>
+    <lastmod>2026-05-27</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://bigevent.de/de/blog/p8</loc>
+    <lastmod>2026-05-27</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- p9: Jaki rozmiar ekranu LED -->
+  <url>
+    <loc>https://bigevent.de/blog/p9</loc>
+    <lastmod>2026-05-27</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://bigevent.de/en/blog/p9</loc>
+    <lastmod>2026-05-27</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://bigevent.de/de/blog/p9</loc>
+    <lastmod>2026-05-27</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- p10: Jak zarezerwować studio -->
+  <url>
+    <loc>https://bigevent.de/blog/p10</loc>
+    <lastmod>2026-05-27</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://bigevent.de/en/blog/p10</loc>
+    <lastmod>2026-05-27</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://bigevent.de/de/blog/p10</loc>
+    <lastmod>2026-05-27</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- p11: Case study automotive -->
+  <url>
+    <loc>https://bigevent.de/blog/p11</loc>
+    <lastmod>2026-05-27</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://bigevent.de/en/blog/p11</loc>
+    <lastmod>2026-05-27</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://bigevent.de/de/blog/p11</loc>
+    <lastmod>2026-05-27</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- p12: LED wall na konferencje korporacyjne -->
+  <url>
+    <loc>https://bigevent.de/blog/p12</loc>
+    <lastmod>2026-05-27</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://bigevent.de/en/blog/p12</loc>
+    <lastmod>2026-05-27</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://bigevent.de/de/blog/p12</loc>
+    <lastmod>2026-05-27</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- p13: Dane techniczne ekranu LED -->
+  <url>
+    <loc>https://bigevent.de/blog/p13</loc>
+    <lastmod>2026-05-27</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://bigevent.de/en/blog/p13</loc>
+    <lastmod>2026-05-27</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://bigevent.de/de/blog/p13</loc>
+    <lastmod>2026-05-27</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- p14: Hannover Messe / bauma / Interpack -->
+  <url>
+    <loc>https://bigevent.de/blog/p14</loc>
+    <lastmod>2026-05-27</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://bigevent.de/en/blog/p14</loc>
+    <lastmod>2026-05-27</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://bigevent.de/de/blog/p14</loc>
+    <lastmod>2026-05-27</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- German SEO specific legacy articles -->
+  <url>
+    <loc>https://bigevent.de/de/blog/p-seo-1-de</loc>
+    <lastmod>2026-04-29</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://bigevent.de/de/blog/p-seo-2-de</loc>
+    <lastmod>2026-04-29</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://bigevent.de/de/blog/p-seo-3-de</loc>
+    <lastmod>2026-04-29</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://bigevent.de/de/blog/p-seo-4-de</loc>
+    <lastmod>2026-04-29</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
   </url>
 
 </urlset>

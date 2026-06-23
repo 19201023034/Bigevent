@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom';
+
 // ── Social links — wstaw swoje URL-e ────────────────────────────────────────
 const SOCIALS = [
   {
@@ -34,26 +36,26 @@ const BigEventLogoSmall = () => (
     <img
       src="/logo.svg"
       alt="BigEvent"
+      loading="lazy"
       style={{ height: 60, width: 'auto', transform: 'scale(3.0)', transformOrigin: 'left center' }}
     />
     <img
       src="/pictures.svg"
       alt=""
+      loading="lazy"
       aria-hidden="true"
       style={{ height: 66, position: 'absolute', bottom: '26px', left: '138px' }}
     />
   </div>
 );
 
-export default function Footer({ t, setLang, onImpressum }) {
-  const scrollTo = (id) => document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
-
+export default function Footer({ t, setLang }) {
   return (
     <footer>
       <div className="container">
         <div className="footer-inner">
           <div className="footer-brand">
-            <BigEventLogoSmall />
+            <Link to="/"><BigEventLogoSmall /></Link>
             <div className="footer-tagline">{t.footer_tagline}</div>
             {/* Social links */}
             <div className="footer-socials">
@@ -76,17 +78,17 @@ export default function Footer({ t, setLang, onImpressum }) {
             <div className="footer-col">
               <h5>{t.footer_col1}</h5>
               <ul>
-                <li><a href="#specs"   onClick={e => { e.preventDefault(); scrollTo('specs');   }}>{t.footer_led}</a></li>
-                <li><a href="#studio"  onClick={e => { e.preventDefault(); scrollTo('studio');  }}>{t.footer_studio}</a></li>
+                <li><Link to="/#specs">{t.footer_led}</Link></li>
+                <li><Link to="/#studio">{t.footer_studio}</Link></li>
               </ul>
             </div>
             <div className="footer-col">
               <h5>{t.footer_col2}</h5>
               <ul>
-                <li><a href="#about"          onClick={e => { e.preventDefault(); scrollTo('about');         }}>{t.footer_about}</a></li>
-                <li><a href="#portfolio"      onClick={e => { e.preventDefault(); scrollTo('portfolio');     }}>{t.footer_portfolio}</a></li>
-                <li><a href="#testimonials"   onClick={e => { e.preventDefault(); scrollTo('testimonials'); }}>{t.footer_testimonials}</a></li>
-                <li><a href="#contact"        onClick={e => { e.preventDefault(); scrollTo('contact');       }}>{t.footer_contact_link}</a></li>
+                <li><Link to="/#about">{t.footer_about}</Link></li>
+                <li><Link to="/#portfolio">{t.footer_portfolio}</Link></li>
+                <li><Link to="/#testimonials">{t.footer_testimonials}</Link></li>
+                <li><Link to="/#contact">{t.footer_contact_link}</Link></li>
               </ul>
             </div>
             <div className="footer-col">
@@ -105,7 +107,7 @@ export default function Footer({ t, setLang, onImpressum }) {
           <div className="footer-legal">
             <a href="#">{t.footer_privacy}</a>
             <a href="#">{t.footer_rodo}</a>
-            <a href="#" onClick={e => { e.preventDefault(); onImpressum(); }}>{t.footer_imprint}</a>
+            <Link to="/impressum">{t.footer_imprint}</Link>
           </div>
         </div>
       </div>

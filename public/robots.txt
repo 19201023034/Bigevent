@@ -4,6 +4,6 @@ Allow: /
 # Sitemap
 Sitemap: https://bigevent.de/sitemap.xml
 
-# Block admin/internal paths
-Disallow: /src/
+# Block admin panel and dev assets
 Disallow: /?admin
+Disallow: /admin

@@ -14,6 +14,19 @@ import Rental from './pages/Rental';
 import Studio from './pages/Studio';
 import Article from './pages/Article';
 
+function NotFound({ lang }) {
+  const prefix = lang === 'pl' ? '' : `/${lang}`;
+  const msgs = { pl: ['Strona nie istnieje', 'Wróć na stronę główną'], en: ['Page not found', 'Back to homepage'], de: ['Seite nicht gefunden', 'Zur Startseite'] };
+  const [title, btn] = msgs[lang] ?? msgs.pl;
+  return (
+    <div style={{ textAlign: 'center', padding: '160px 20px 100px', color: 'var(--txt)', fontFamily: 'var(--font-body)' }}>
+      <p style={{ fontFamily: 'var(--font-head)', fontSize: '7rem', fontWeight: 800, color: 'var(--lime)', margin: 0, lineHeight: 1 }}>404</p>
+      <p style={{ color: '#888', marginBottom: '2.5rem', fontSize: '1.1rem' }}>{title}</p>
+      <a href={prefix || '/'} style={{ padding: '12px 32px', background: 'var(--lime)', color: '#000', borderRadius: '40px', fontFamily: 'var(--font-head)', fontWeight: 700, fontSize: '14px', textDecoration: 'none', letterSpacing: '0.05em' }}>{btn}</a>
+    </div>
+  );
+}
+
 function ScrollToTop() {
   const { pathname, hash } = useLocation();
 
@@ -197,9 +210,12 @@ export default function App() {
         <Route path="/de/studio-wirtualnej-produkcji" element={<Studio t={t} images={images} lang={lang} />} />
         <Route path="/de/blog/:slug" element={<Article lang={lang} />} />
         <Route path="/de/impressum" element={<Impressum onClose={() => window.history.back()} />} />
+
+        {/* 404 */}
+        <Route path="*" element={<NotFound lang={lang} />} />
       </Routes>
 
-      <Footer t={t} setLang={handleLangChange} />
+      <Footer t={t} setLang={handleLangChange} lang={lang} />
 
       {/* Back to top */}
       <button

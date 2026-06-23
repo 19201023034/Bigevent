@@ -44,7 +44,7 @@ export default function Nav({ lang, setLang, theme, toggleTheme, t }) {
 
   // IntersectionObserver to track which section is in view (only on homepage)
   useEffect(() => {
-    if (location.pathname !== '/') return;
+    if (!['/', '/en', '/de'].includes(location.pathname)) return;
     observerRef.current?.disconnect();
     observerRef.current = new IntersectionObserver(
       (entries) => {
@@ -61,21 +61,22 @@ export default function Nav({ lang, setLang, theme, toggleTheme, t }) {
     return () => observerRef.current?.disconnect();
   }, [location.pathname]);
 
+  const prefix = lang === 'pl' ? '' : `/${lang}`;
   const links = [
-    { id: 'services',     label: t.nav_services,     path: '/#services' },
-    { id: 'studio',       label: t.nav_studio,       path: '/#studio' },
-    { id: 'led-calculator', label: t.nav_calc,       path: '/#led-calculator' },
-    { id: 'portfolio',    label: t.nav_portfolio,    path: '/#portfolio' },
-    { id: 'blog',         label: t.nav_blog,         path: '/#blog' },
-    { id: 'testimonials', label: t.nav_testimonials, path: '/#testimonials' },
-    { id: 'about',        label: t.nav_about,        path: '/#about' },
-    { id: 'contact',      label: t.nav_contact,      path: '/#contact' },
+    { id: 'services',       label: t.nav_services,     path: `${prefix}/#services` },
+    { id: 'studio',         label: t.nav_studio,       path: `${prefix}/#studio` },
+    { id: 'led-calculator', label: t.nav_calc,         path: `${prefix}/#led-calculator` },
+    { id: 'portfolio',      label: t.nav_portfolio,    path: `${prefix}/#portfolio` },
+    { id: 'blog',           label: t.nav_blog,         path: `${prefix}/#blog` },
+    { id: 'testimonials',   label: t.nav_testimonials, path: `${prefix}/#testimonials` },
+    { id: 'about',          label: t.nav_about,        path: `${prefix}/#about` },
+    { id: 'contact',        label: t.nav_contact,      path: `${prefix}/#contact` },
   ];
 
   return (
     <>
       <nav id="main-nav" className={scrolled ? 'scrolled' : ''}>
-        <Link className="nav-logo" to="/" aria-label="BigEvent home">
+        <Link className="nav-logo" to={prefix || '/'} aria-label="BigEvent home">
           <BigEventLogo theme={theme} />
           <PicturesDoodle theme={theme} />
         </Link>
@@ -114,7 +115,7 @@ export default function Nav({ lang, setLang, theme, toggleTheme, t }) {
               </svg>
             )}
           </button>
-          <Link className="btn-cta-nav" style={{ textDecoration: 'none' }} to="/#contact">{t.nav_cta}</Link>
+          <Link className="btn-cta-nav" style={{ textDecoration: 'none' }} to={`${prefix}/#contact`}>{t.nav_cta}</Link>
           <button
             className={`hamburger${mobileOpen ? ' open' : ''}`}
             onClick={() => setMobileOpen(v => !v)}

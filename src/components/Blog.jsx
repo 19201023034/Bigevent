@@ -190,7 +190,9 @@ const BLOG_POSTS = [
 
 export default function Blog({ t, lang }) {
   const [showAll, setShowAll] = useState(false);
-  const displayedPosts = showAll ? BLOG_POSTS : BLOG_POSTS.slice(0, 3);
+  // Posts 4-7 are DE-only SEO articles (p-seo-*) — hide for PL/EN
+  const visiblePosts = lang === 'de' ? BLOG_POSTS : BLOG_POSTS.filter(p => p.id < 4 || p.id > 7);
+  const displayedPosts = showAll ? visiblePosts : visiblePosts.slice(0, 3);
 
   useEffect(() => {
     if (showAll) {
@@ -240,21 +242,14 @@ export default function Blog({ t, lang }) {
             // Use article title as SEO-friendly alt text for thumbnail images
             const imgAlt = t[post.titleKey] || '';
 
-            const isLive = post.id === 1 || post.id === 2 || post.id === 3 || post.id >= 4;
-            const postUrl = isLive ? `${lang === 'pl' ? '' : `/${lang}`}/blog/${articleId}` : '#';
+            const postUrl = `${lang === 'pl' ? '' : `/${lang}`}/blog/${articleId}`;
             return (
               <Link
                 to={postUrl}
                 key={post.id}
-                style={{ textDecoration: 'none', color: 'inherit', cursor: isLive ? 'pointer' : 'default' }}
-                onClick={(e) => {
-                  if (!isLive) e.preventDefault();
-                }}
-                aria-disabled={!isLive}
+                style={{ textDecoration: 'none', color: 'inherit' }}
               >
-                <article
-                  className={`blog-card reveal reveal-d${i + 1}${!isLive ? ' blog-card--soon' : ''}`}
-                >
+                <article className={`blog-card reveal reveal-d${i + 1}`}>
                   <div className="blog-thumb">
                     <Thumb alt={imgAlt} />
                   </div>
@@ -278,7 +273,7 @@ export default function Blog({ t, lang }) {
           })}
         </div>
 
-        {!showAll && BLOG_POSTS.length > 3 && (
+        {!showAll && visiblePosts.length > 3 && (
           <div style={{ textAlign: 'center', marginTop: '50px' }} className="reveal reveal-d3">
             <button 
               onClick={() => setShowAll(true)} 

@@ -49,13 +49,14 @@ const BigEventLogoSmall = () => (
   </div>
 );
 
-export default function Footer({ t, setLang }) {
+export default function Footer({ t, setLang, lang }) {
+  const prefix = lang === 'pl' ? '' : `/${lang}`;
   return (
     <footer>
       <div className="container">
         <div className="footer-inner">
           <div className="footer-brand">
-            <Link to="/"><BigEventLogoSmall /></Link>
+            <Link to={prefix || '/'}><BigEventLogoSmall /></Link>
             <div className="footer-tagline">{t.footer_tagline}</div>
             {/* Social links */}
             <div className="footer-socials">
@@ -78,17 +79,17 @@ export default function Footer({ t, setLang }) {
             <div className="footer-col">
               <h5>{t.footer_col1}</h5>
               <ul>
-                <li><Link to="/#specs">{t.footer_led}</Link></li>
-                <li><Link to="/#studio">{t.footer_studio}</Link></li>
+                <li><Link to={`${prefix}/#specs`}>{t.footer_led}</Link></li>
+                <li><Link to={`${prefix}/#studio`}>{t.footer_studio}</Link></li>
               </ul>
             </div>
             <div className="footer-col">
               <h5>{t.footer_col2}</h5>
               <ul>
-                <li><Link to="/#about">{t.footer_about}</Link></li>
-                <li><Link to="/#portfolio">{t.footer_portfolio}</Link></li>
-                <li><Link to="/#testimonials">{t.footer_testimonials}</Link></li>
-                <li><Link to="/#contact">{t.footer_contact_link}</Link></li>
+                <li><Link to={`${prefix}/#about`}>{t.footer_about}</Link></li>
+                <li><Link to={`${prefix}/#portfolio`}>{t.footer_portfolio}</Link></li>
+                <li><Link to={`${prefix}/#testimonials`}>{t.footer_testimonials}</Link></li>
+                <li><Link to={`${prefix}/#contact`}>{t.footer_contact_link}</Link></li>
               </ul>
             </div>
             <div className="footer-col">
@@ -107,7 +108,7 @@ export default function Footer({ t, setLang }) {
           <div className="footer-legal">
             <a href="#">{t.footer_privacy}</a>
             <a href="#">{t.footer_rodo}</a>
-            <Link to="/impressum">{t.footer_imprint}</Link>
+            <Link to={`${prefix}/impressum`}>{t.footer_imprint}</Link>
           </div>
         </div>
       </div>

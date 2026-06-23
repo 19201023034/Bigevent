@@ -135,6 +135,19 @@ export default function Nav({ lang, setLang, theme, toggleTheme, t }) {
             {l.label}
           </Link>
         ))}
+        <Link
+          to={`${prefix}/#contact`}
+          onClick={() => setMobileOpen(false)}
+          style={{
+            display: 'block', textAlign: 'center', padding: '13px 24px',
+            background: 'var(--lime)', color: '#000', borderRadius: '40px',
+            fontFamily: 'var(--font-head)', fontWeight: 700, fontSize: '14px',
+            letterSpacing: '0.04em', textDecoration: 'none', marginTop: '0.4rem',
+          }}
+        >
+          {t.nav_cta}
+        </Link>
+
         <div className="mobile-menu-footer">
           <div className="mobile-lang-switcher">
             {['pl', 'en', 'de'].map(l => (

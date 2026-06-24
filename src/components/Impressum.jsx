@@ -62,10 +62,7 @@ export default function Impressum({ onClose }) {
           </div>
           <div style={{ borderTop: '0.5px solid var(--border)', paddingTop: '1rem', marginTop: '0.25rem' }}>
             <div style={{ color: 'var(--txt-3)', fontSize: 11, letterSpacing: '0.08em', textTransform: 'uppercase', marginBottom: 6 }}>Credits</div>
-            <div>Konzept &amp; Layout: <span style={{ color: 'var(--txt)' }}>clarsicht — Dipl.-Des. Corina Clar</span></div>
-            <div>Fotos: <span style={{ color: 'var(--txt)' }}>B.A. Tobias Hoh, Dipl.-Des. Corina Clar</span></div>
-            <div>Texte: <span style={{ color: 'var(--txt)' }}>Daniele Fettweis</span></div>
-            <div>Umsetzung: <span style={{ color: 'var(--txt)' }}>WapplerSystems</span></div>
+            <div>Konzept &amp; Layout: <a href="https://www.semastudio.pl" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--lime)' }}>www.semastudio.pl</a></div>
           </div>
         </div>
       </div>

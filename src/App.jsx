@@ -105,8 +105,23 @@ export default function App() {
     if (location.search) newPath += location.search;
     if (location.hash)   newPath += location.hash;
 
+    localStorage.setItem('lang_pref', newLang);
     navigate(newPath);
   };
+
+  // Auto-detect browser language on very first visit (no stored preference)
+  useEffect(() => {
+    if (localStorage.getItem('lang_pref')) return;
+    if (location.pathname !== '/') return;
+
+    const browserLang = (navigator.language || navigator.userLanguage || '').toLowerCase();
+    let target = 'pl';
+    if (browserLang.startsWith('de')) target = 'de';
+    else if (!browserLang.startsWith('pl')) target = 'en';
+
+    localStorage.setItem('lang_pref', target);
+    if (target !== 'pl') navigate(`/${target}`, { replace: true });
+  }, []);
 
   const { t, overrides, saveField, resetContent, images, saveImage } = useCMS(lang);
 

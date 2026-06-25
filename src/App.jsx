@@ -230,7 +230,7 @@ export default function App() {
         <Route path="*" element={<NotFound lang={lang} />} />
       </Routes>
 
-      <Footer t={t} setLang={handleLangChange} lang={lang} />
+      <Footer t={t} setLang={handleLangChange} lang={lang} theme={theme} />
 
       {/* Back to top */}
       <button

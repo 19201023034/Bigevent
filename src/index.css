@@ -282,7 +282,11 @@ nav.scrolled {
   --logo-h: 44px;
 }
 @media (max-width: 960px) {
-  .nav-logo { --logo-h: 34px; }
+  .nav-logo {
+    --logo-h: 40px;
+    align-items: flex-end;
+    padding-bottom: 4px;
+  }
 }
 
 /* ── Nav links ── */
@@ -1290,6 +1294,12 @@ a.ci-value:hover { color: var(--lime); text-decoration: underline; }
   pointer-events: none;
   background: radial-gradient(circle at center, transparent 20%, rgba(3,3,4,0.75) 100%);
 }
+[data-theme="light"] .hero-canvas.powered-on {
+  opacity: 0.06;
+}
+[data-theme="light"] .hero-glow {
+  background: radial-gradient(circle at center, transparent 30%, rgba(243,242,237,0.72) 100%);
+}
 
 
 .hero-content {
@@ -1642,6 +1652,11 @@ footer {
   /* Potrzebne aby cien karty byl widoczny mimo overflow:visible */
   isolation: isolate;
 }
+[data-theme="light"] .specs-product-card {
+  background: rgba(22,24,30,0.90);
+  border-color: rgba(0,0,0,0.16);
+  box-shadow: 0 8px 40px rgba(0,0,0,0.14);
+}
 
 .specs-product-card:hover {
   border-color: rgba(173,208,52,0.25);
@@ -1758,6 +1773,9 @@ footer {
   height: 1px;
   background: rgba(255,255,255,0.06);
   margin-bottom: 2rem;
+}
+[data-theme="light"] .specs-product-summary::before {
+  background: rgba(255,255,255,0.10);
 }
 
 .specs-product-item {

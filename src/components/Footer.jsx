@@ -31,32 +31,25 @@ const SOCIALS = [
   },
 ];
 
-const BigEventLogoSmall = () => (
-  <div className="footer-logo-wrap" style={{ display: 'flex', position: 'relative', marginLeft: '0', marginBottom: '1.5rem', alignSelf: 'flex-start' }}>
+const BigEventLogoSmall = ({ theme }) => (
+  <div style={{ marginBottom: '1.5rem', alignSelf: 'flex-start' }}>
     <img
-      src="/logo.svg"
-      alt="BigEvent"
+      src={theme === 'light' ? '/be_pictureswhite.png' : '/be_picturesblack.png'}
+      alt="BigEvent pictures"
       loading="lazy"
-      style={{ height: 60, width: 'auto', transform: 'scale(3.0)', transformOrigin: 'left center' }}
-    />
-    <img
-      src="/pictures.svg"
-      alt=""
-      loading="lazy"
-      aria-hidden="true"
-      style={{ height: 66, position: 'absolute', bottom: '26px', left: '138px' }}
+      style={{ height: '52px', width: 'auto', display: 'block' }}
     />
   </div>
 );
 
-export default function Footer({ t, setLang, lang }) {
+export default function Footer({ t, setLang, lang, theme }) {
   const prefix = lang === 'pl' ? '' : `/${lang}`;
   return (
     <footer>
       <div className="container">
         <div className="footer-inner">
           <div className="footer-brand">
-            <Link to={prefix || '/'}><BigEventLogoSmall /></Link>
+            <Link to={prefix || '/'}><BigEventLogoSmall theme={theme} /></Link>
             <div className="footer-tagline">{t.footer_tagline}</div>
             {/* Social links */}
             <div className="footer-socials">

@@ -283,9 +283,9 @@ nav.scrolled {
 }
 @media (max-width: 960px) {
   .nav-logo {
-    --logo-h: 40px;
+    --logo-h: 46px;
     align-items: flex-end;
-    padding-bottom: 4px;
+    padding-bottom: 7px;
   }
 }
 
@@ -1800,7 +1800,7 @@ footer {
 .spi-unit {
   font-size: 0.85rem;
   font-weight: 600;
-  color: var(--txt-2);
+  color: rgba(255,255,255,0.55);
   margin-left: 4px;
 }
 
@@ -1813,12 +1813,12 @@ footer {
 .spi-name {
   font-size: 0.85rem;
   font-weight: 600;
-  color: var(--txt-1);
+  color: rgba(255,255,255,0.92);
 }
 
 .spi-desc {
   font-size: 0.75rem;
-  color: var(--txt-3);
+  color: rgba(255,255,255,0.48);
   line-height: 1.3;
 }
 
@@ -2832,7 +2832,7 @@ section:not(#hero)::before {
   background: var(--bg-3);
   border: 1px solid var(--border);
   border-radius: var(--radius-sm);
-  color: var(--txt-1);
+  color: var(--txt);
   font-family: var(--font-sans);
   font-size: 15px;
   transition: border-color var(--transition);
@@ -2875,7 +2875,7 @@ section:not(#hero)::before {
 .sp-back-btn {
   background: none;
   border: none;
-  color: var(--txt-1);
+  color: var(--txt);
   font-size: 14px;
   font-weight: 500;
   display: flex;
@@ -2988,7 +2988,7 @@ section:not(#hero)::before {
   border-bottom: none;
 }
 .sp-specs-list li strong {
-  color: var(--txt-1);
+  color: var(--txt);
   font-weight: 600;
 }
 .sp-specs-list li span {

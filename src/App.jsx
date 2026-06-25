@@ -103,7 +103,7 @@ export default function App() {
     newPath = newPath.replace(/\/+/g, '/');
     if (newPath === '') newPath = '/';
     if (location.search) newPath += location.search;
-    if (location.hash)   newPath += location.hash;
+    // Nie przenosimy hash — zmiana języka zawsze wraca na górę strony
 
     localStorage.setItem('lang_pref', newLang);
     navigate(newPath);

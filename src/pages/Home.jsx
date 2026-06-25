@@ -112,8 +112,8 @@ export default function Home({ t, images, lang }) {
       
       {/* Przycisk przejścia do podstrony SEO Wynajmu */}
       <div className="container" style={{ textAlign: 'center', paddingBottom: '80px' }}>
-         <button className="form-submit reveal reveal-d2" style={{ width: 'auto' }} onClick={() => navigate('/wynajem-ekranow-led')}>
-            Więcej o wynajmie LED ➔
+         <button className="form-submit reveal reveal-d2" style={{ width: 'auto' }} onClick={() => navigate(`${lang === 'pl' ? '' : `/${lang}`}/wynajem-ekranow-led`)}>
+            {t.specs_rental_btn}
          </button>
       </div>
 

@@ -3,28 +3,11 @@ import { Link, useLocation } from 'react-router-dom';
 
 const BigEventLogo = ({ theme }) => (
   <img
-    src="/logo.svg"
-    alt="BigEvent"
-    style={{
-      height: 66,
-      width: 'auto',
-      transform: 'scale(2.4) translateY(18px)',
-      transformOrigin: 'left center',
-      filter: theme === 'light' ? 'invert(1) brightness(0.2)' : 'none',
-      transition: 'filter 0.2s',
-    }}
+    src={theme === 'light' ? '/be_pictureswhite.png' : '/be_picturesblack.png'}
+    alt="BigEvent pictures"
+    className="nav-logo-img"
+    style={{ height: 'var(--logo-h)', width: 'auto', display: 'block', transition: 'opacity 0.2s' }}
   />
-);
-
-const PicturesDoodle = ({ theme }) => (
-  <span className="nav-doodle-wrap" aria-hidden="true">
-    <img
-      src="/pictures.svg"
-      alt=""
-      className="nav-doodle"
-      style={{ filter: theme === 'light' ? 'invert(1) brightness(0.15)' : 'none' }}
-    />
-  </span>
 );
 
 const SECTION_IDS = ['services', 'portfolio', 'blog', 'testimonials', 'about', 'contact'];
@@ -78,7 +61,6 @@ export default function Nav({ lang, setLang, theme, toggleTheme, t }) {
       <nav id="main-nav" className={scrolled ? 'scrolled' : ''}>
         <Link className="nav-logo" to={prefix || '/'} aria-label="BigEvent home">
           <BigEventLogo theme={theme} />
-          <PicturesDoodle theme={theme} />
         </Link>
 
         <ul className="nav-links">

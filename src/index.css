@@ -277,59 +277,13 @@ nav.scrolled {
 .nav-logo {
   display: flex;
   align-items: center;
-  gap: 0;
   text-decoration: none;
   flex-shrink: 0;
+  --logo-h: 44px;
 }
-.nav-logo > img { height: 28px; width: auto; }
 @media (max-width: 960px) {
-  .nav-logo > img {
-    height: 36px !important;
-    transform: none !important;
-    transform-origin: unset !important;
-  }
+  .nav-logo { --logo-h: 34px; }
 }
-[data-theme="light"] .nav-logo .logo-white { fill: #111; }
-
-/* ── Doodle "mazak" animacja ── */
-.nav-doodle-wrap {
-  display: flex;
-  align-self: flex-start;
-  height: 0;
-  overflow: visible;
-  /* Absolutna kontrola pozycji względem kontenera flex */
-  position: relative;
-  left: -86px; /* mocniej w lewo */
-  top: 20px;   /* lekko nizej */
-}
-
-.nav-doodle {
-  height: 58px; /* pomniejszony lekko */
-  width: auto;
-  max-width: 480px;
-  object-fit: contain;
-  display: block;
-  /* Transform usunięty stąd – używamy marginesów w wrapperze, by nie walczyć z @keyframes! */
-  clip-path: inset(0 100% 0 0);
-  animation:
-    markerDraw   1.8s cubic-bezier(0.4,0,0.2,1) 0.8s both,
-    markerWiggle 1.8s ease-in-out               0.8s both;
-}
-
-@keyframes markerDraw {
-  0%   { clip-path: inset(0 100% 0 0); }
-  6%   { clip-path: inset(0 97%  0 0); }
-  100% { clip-path: inset(0 0%   0 0); }
-}
-@keyframes markerWiggle {
-  0%   { transform: translateY(0)      rotate(0deg);    }
-  20%  { transform: translateY(-0.8px) rotate(0.4deg);  }
-  45%  { transform: translateY(0.6px)  rotate(-0.3deg); }
-  70%  { transform: translateY(-0.5px) rotate(0.2deg);  }
-  100% { transform: translateY(0)      rotate(0deg);    }
-}
-
-@media (max-width: 960px) { .nav-doodle-wrap { display: none; } }
 
 /* ── Nav links ── */
 .nav-links {

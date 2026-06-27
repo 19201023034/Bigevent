@@ -52,7 +52,7 @@
 ═══════════════════════════════════════ */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-html { scroll-behavior: smooth; }
+html { scroll-behavior: smooth; overflow-x: clip; }
 
 @keyframes pageFadeIn {
   from { opacity: 0; }
@@ -285,7 +285,7 @@ nav.scrolled {
   .nav-logo {
     --logo-h: 46px;
     align-items: flex-end;
-    padding-bottom: 7px;
+    padding-bottom: 11px;
   }
 }
 
@@ -1932,6 +1932,7 @@ footer {
 section:not(#hero) {
   position: relative;
   border-top: 0.5px solid rgba(173,208,52,0.08);
+  overflow-x: clip;
 }
 
 section:not(#hero)::before {

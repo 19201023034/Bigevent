@@ -99,8 +99,8 @@ export default function Footer({ t, setLang, lang, theme }) {
         <div className="footer-bottom">
           <span className="footer-copy">© {new Date().getFullYear()} BigEvent. {t.footer_rights}</span>
           <div className="footer-legal">
-            <a href="#">{t.footer_privacy}</a>
-            <a href="#">{t.footer_rodo}</a>
+            <Link to={lang === 'pl' ? '/polityka-prywatnosci' : (lang === 'de' ? '/de/datenschutz' : '/en/privacy-policy')}>{t.footer_privacy}</Link>
+            <Link to={lang === 'pl' ? '/rodo' : (lang === 'de' ? '/de/dsgvo' : '/en/gdpr')}>{t.footer_rodo}</Link>
             <Link to={`${prefix}/impressum`}>{t.footer_imprint}</Link>
           </div>
         </div>

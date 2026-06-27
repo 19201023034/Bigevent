@@ -6,6 +6,7 @@ import Nav from './components/Nav';
 import CookieBanner from './components/CookieBanner';
 import Footer from './components/Footer';
 import Impressum from './components/Impressum';
+import PrivacyModal from './components/PrivacyModal';
 import AdminPanel from './components/AdminPanel';
 
 // Pages
@@ -201,7 +202,13 @@ export default function App() {
         />
       )}
 
-      <CookieBanner t={t} />
+      <CookieBanner
+        t={t}
+        onOpenSettings={() => {
+          const cookiesPath = lang === 'pl' ? '/cookies' : (lang === 'de' ? '/de/cookies' : '/en/cookies');
+          navigate(cookiesPath);
+        }}
+      />
       <Nav lang={lang} setLang={handleLangChange} theme={theme} toggleTheme={toggleTheme} t={t} />
 
       <Routes>
@@ -211,6 +218,9 @@ export default function App() {
         <Route path="/studio-wirtualnej-produkcji" element={<Studio t={t} images={images} lang={lang} />} />
         <Route path="/blog/:slug" element={<Article lang={lang} />} />
         <Route path="/impressum" element={<Impressum onClose={() => window.history.back()} />} />
+        <Route path="/polityka-prywatnosci" element={<PrivacyModal lang={lang} activeTab="privacy" onClose={() => window.history.back()} />} />
+        <Route path="/rodo" element={<PrivacyModal lang={lang} activeTab="gdpr" onClose={() => window.history.back()} />} />
+        <Route path="/cookies" element={<PrivacyModal lang={lang} activeTab="cookies" onClose={() => window.history.back()} />} />
 
         {/* EN Routes */}
         <Route path="/en" element={<Home t={t} images={images} lang={lang} />} />
@@ -218,6 +228,9 @@ export default function App() {
         <Route path="/en/studio-wirtualnej-produkcji" element={<Studio t={t} images={images} lang={lang} />} />
         <Route path="/en/blog/:slug" element={<Article lang={lang} />} />
         <Route path="/en/impressum" element={<Impressum onClose={() => window.history.back()} />} />
+        <Route path="/en/privacy-policy" element={<PrivacyModal lang={lang} activeTab="privacy" onClose={() => window.history.back()} />} />
+        <Route path="/en/gdpr" element={<PrivacyModal lang={lang} activeTab="gdpr" onClose={() => window.history.back()} />} />
+        <Route path="/en/cookies" element={<PrivacyModal lang={lang} activeTab="cookies" onClose={() => window.history.back()} />} />
 
         {/* DE Routes */}
         <Route path="/de" element={<Home t={t} images={images} lang={lang} />} />
@@ -225,6 +238,9 @@ export default function App() {
         <Route path="/de/studio-wirtualnej-produkcji" element={<Studio t={t} images={images} lang={lang} />} />
         <Route path="/de/blog/:slug" element={<Article lang={lang} />} />
         <Route path="/de/impressum" element={<Impressum onClose={() => window.history.back()} />} />
+        <Route path="/de/datenschutz" element={<PrivacyModal lang={lang} activeTab="privacy" onClose={() => window.history.back()} />} />
+        <Route path="/de/dsgvo" element={<PrivacyModal lang={lang} activeTab="gdpr" onClose={() => window.history.back()} />} />
+        <Route path="/de/cookies" element={<PrivacyModal lang={lang} activeTab="cookies" onClose={() => window.history.back()} />} />
 
         {/* 404 */}
         <Route path="*" element={<NotFound lang={lang} />} />

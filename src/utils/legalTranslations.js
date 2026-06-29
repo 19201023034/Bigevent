@@ -48,7 +48,7 @@ export const legalTranslations = {
       },
       {
         h: 'Podmiot odpowiedzialny (Administrator)',
-        p: 'Administratorem odpowiedzialnym za przetwarzanie danych jest:\n\nBigevent\nProduct- & Exhibition Design\nKrantzstrasse 7\nGebäude 27\n52070 Aachen\n\nDipl.-Des. Thomas Kudla\nT: +49 (0)163 771 674 4\nF: +49 (0)321 212 814 00\nE-mail: info@bigevent.de'
+        p: 'Administratorem odpowiedzialnym za przetwarzanie danych jest:\n\nBigevent\nProduct- & Exhibition Design\nKrantzstrasse 7\nGebäude 27\n52070 Aachen\n\nDipl.-Des. Thomas Kudla\nT: +49 (0)163 771 674 4\nF: +49 (0)321 212 814 00\nE-mail: pictures@bigevent.de'
       },
       {
         h: 'Cofnięcie zgody na przetwarzanie danych',
@@ -102,7 +102,7 @@ export const legalTranslations = {
       { name: 'Prawo do sprzeciwu (Art. 21 RODO)', desc: 'Możesz sprzeciwić się przetwarzaniu na podstawie prawnie uzasadnionego interesu.' },
       { name: 'Prawo do skargi do organu nadzorczego (Art. 77 RODO)', desc: 'Masz prawo wnieść skargę do właściwego urzędu ochrony danych w swoim kraju lub w Niemczech (LDI NRW).' }
     ],
-    gdpr_contact_action: 'Aby skorzystać z dowolnego z powyższych praw, skontaktuj się z nami pod adresem: info@bigevent.de.'
+    gdpr_contact_action: 'Aby skorzystać z dowolnego z powyższych praw, skontaktuj się z nami pod adresem: pictures@bigevent.de.'
   },
   de: {
     title: 'Datenschutz & Cookie-Einstellungen',
@@ -161,7 +161,7 @@ export const legalTranslations = {
       },
       {
         h: 'Hinweis zur verantwortlichen Stelle',
-        p: 'Die verantwortliche Stelle für die Datenverarbeitung auf dieser Website ist:\n\nBigevent\nProduct- & Exhibition Design\nKrantzstrasse 7\nGebäude 27\n52070 Aachen\n\nDipl.-Des. Thomas Kudla\nT: +49 (0)163 771 674 4\nF: +49 (0)321 212 814 00\nE-Mail: info@bigevent.de\n\nVerantwortliche Stelle ist die natürliche oder juristische Person, die allein oder gemeinsam mit anderen über die Zwecke und Mittel der Verarbeitung von personenbezogenen Daten (z. B. Namen, E-Mail-Adressen o. Ä.) entscheidet.'
+        p: 'Die verantwortliche Stelle für die Datenverarbeitung auf dieser Website ist:\n\nBigevent\nProduct- & Exhibition Design\nKrantzstrasse 7\nGebäude 27\n52070 Aachen\n\nDipl.-Des. Thomas Kudla\nT: +49 (0)163 771 674 4\nF: +49 (0)321 212 814 00\nE-Mail: pictures@bigevent.de\n\nVerantwortliche Stelle ist die natürliche oder juristische Person, die allein oder gemeinsam mit anderen über die Zwecke und Mittel der Verarbeitung von personenbezogenen Daten (z. B. Namen, E-Mail-Adressen o. Ä.) entscheidet.'
       },
       {
         h: 'Widerruf Ihrer Einwilligung zur Datenverarbeitung',
@@ -231,7 +231,7 @@ export const legalTranslations = {
       { name: 'Recht auf Widerspruch (Art. 21 DSGVO)', desc: 'Sie können der Datenverarbeitung aus Gründen eines berechtigten Interesses widersprechen.' },
       { name: 'Beschwerderecht (Art. 77 DSGVO)', desc: 'Sie können sich bei der zuständigen Aufsichtsbehörde (z. B. LDI NRW) beschweren.' }
     ],
-    gdpr_contact_action: 'Zur Geltendmachung Ihrer Rechte kontaktieren Sie uns bitte unter: info@bigevent.de.'
+    gdpr_contact_action: 'Zur Geltendmachung Ihrer Rechte kontaktieren Sie uns bitte unter: pictures@bigevent.de.'
   },
   en: {
     title: 'Privacy Policy & Cookie Settings',
@@ -286,7 +286,7 @@ export const legalTranslations = {
       },
       {
         h: 'Note on the responsible body',
-        p: 'The responsible body for data processing on this website is:\n\nBigevent\nProduct- & Exhibition Design\nKrantzstrasse 7\nGebäude 27\n52070 Aachen\nGermany\n\nDipl.-Des. Thomas Kudla\nT: +49 (0)163 771 674 4\nF: +49 (0)321 212 814 00\nEmail: info@bigevent.de'
+        p: 'The responsible body for data processing on this website is:\n\nBigevent\nProduct- & Exhibition Design\nKrantzstrasse 7\nGebäude 27\n52070 Aachen\nGermany\n\nDipl.-Des. Thomas Kudla\nT: +49 (0)163 771 674 4\nF: +49 (0)321 212 814 00\nEmail: pictures@bigevent.de'
       },
       {
         h: 'Withdrawal of your consent to data processing',
@@ -344,6 +344,6 @@ export const legalTranslations = {
       { name: 'Right to Object (Art. 21 GDPR)', desc: 'You can object to processing based on legitimate interests.' },
       { name: 'Right to Complain (Art. 77 GDPR)', desc: 'You can file a complaint with a data protection authority (e.g., LDI NRW).' }
     ],
-    gdpr_contact_action: 'To exercise any of these rights, please contact us at: info@bigevent.de.'
+    gdpr_contact_action: 'To exercise any of these rights, please contact us at: pictures@bigevent.de.'
   }
 };

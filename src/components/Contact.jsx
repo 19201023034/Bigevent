@@ -4,7 +4,7 @@ import { useState } from 'react';
 // 1. Zarejestruj się na https://formspree.io (free tier: 50 wiadomości/miesiąc)
 // 2. Utwórz nowy formularz, skopiuj ID (np. "xpzvjkqr")
 // 3. Zastąp poniższe TWOJE_ID_FORMSPREE
-const FORMSPREE_URL = 'https://formspree.io/f/TWOJE_ID_FORMSPREE';
+const FORMSPREE_URL = 'https://formspree.io/pictures@bigevent.de';
 
 export default function Contact({ t }) {
   const [sent,    setSent]    = useState(false);
@@ -53,7 +53,7 @@ export default function Contact({ t }) {
                 </div>
                 <div>
                   <div className="ci-label">{t.ci_email_label}</div>
-                  <a className="ci-value" href="mailto:info@bigevent.de">info@bigevent.de</a>
+                  <a className="ci-value" href="mailto:pictures@bigevent.de">pictures@bigevent.de</a>
                 </div>
               </div>
               <div className="contact-item">

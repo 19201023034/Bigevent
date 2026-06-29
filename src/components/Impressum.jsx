@@ -57,7 +57,7 @@ export default function Impressum({ onClose }) {
             <div style={{ color: 'var(--txt)' }}>
               T: +49 (0)163 771 674 4<br/>
               F: +49 (0)321 212 814 00<br/>
-              <a href="mailto:info@bigevent.de" style={{ color: 'var(--lime)' }}>info@bigevent.de</a>
+              <a href="mailto:pictures@bigevent.de" style={{ color: 'var(--lime)' }}>pictures@bigevent.de</a>
             </div>
           </div>
           <div style={{ borderTop: '0.5px solid var(--border)', paddingTop: '1rem', marginTop: '0.25rem' }}>

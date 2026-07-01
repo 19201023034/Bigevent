@@ -93,7 +93,7 @@ export default function StudioPage({ t, onClose }) {
               {t.sp_booking_p || 'Wypełnij poniższy formularz, a my wrócimy do Ciebie z potwierdzeniem dostępności terminu i dedykowaną wyceną.'}
             </p>
 
-            <form className="cq-form sp-booking-form" action="https://formspree.io/pictures@bigevent.de" method="POST">
+            <form className="cq-form sp-booking-form" action="https://formspree.io/f/xkolzrnk" method="POST">
               <input type="hidden" name="Usługa" value="Rezerwacja Studia Filmowego" />
               <div className="form-row">
                 <div className="form-group">

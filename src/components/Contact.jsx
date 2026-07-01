@@ -4,7 +4,7 @@ import { useState } from 'react';
 // 1. Zarejestruj się na https://formspree.io (free tier: 50 wiadomości/miesiąc)
 // 2. Utwórz nowy formularz, skopiuj ID (np. "xpzvjkqr")
 // 3. Zastąp poniższe TWOJE_ID_FORMSPREE
-const FORMSPREE_URL = 'https://formspree.io/pictures@bigevent.de';
+const FORMSPREE_URL = 'https://formspree.io/f/xkolzrnk';
 
 export default function Contact({ t }) {
   const [sent,    setSent]    = useState(false);

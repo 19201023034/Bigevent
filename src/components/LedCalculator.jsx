@@ -58,7 +58,7 @@ export default function LedCalculator({ t }) {
     setSending(true);
     setError(false);
     try {
-      const res = await fetch('https://formspree.io/f/TWOJE_ID_FORMSPREE', {
+      const res = await fetch('https://formspree.io/pictures@bigevent.de', {
         method: 'POST',
         body: new FormData(e.target),
         headers: { Accept: 'application/json' },

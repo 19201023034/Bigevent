@@ -276,7 +276,7 @@ export default function AdminPanel({
   return (
     <>
       <div className="admin-overlay" onClick={e => { if (e.target === e.currentTarget) onClose(); }}>
-        <aside className="admin-panel" role="dialog" aria-label="Panel admina">
+        <aside className="admin-panel" role="dialog" aria-label={t.aria_admin_trigger || "Panel admina"}>
 
           {/* Header */}
           <div className="admin-head">
@@ -286,7 +286,7 @@ export default function AdminPanel({
               </svg>
               Admin <span>CMS</span>
             </h2>
-            <button className="admin-close" onClick={onClose} aria-label="Zamknij">✕</button>
+            <button className="admin-close" onClick={onClose} aria-label={t.aria_close || "Zamknij"}>✕</button>
           </div>
 
           {!authed ? (

@@ -127,7 +127,7 @@ export default function Hero({ t }) {
           className={`pixel-canvas hero-canvas ${textIn ? 'powered-on' : ''}`}
           ref={canvasRef}
           role="img"
-          aria-label="Animowane tło z pikseli LED"
+          aria-label={t.aria_canvas_bg || "Animowane tło z pikseli LED"}
         />
 
         {/* Grid paneli wlatujących z różnych stron */}

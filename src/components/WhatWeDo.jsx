@@ -93,7 +93,7 @@ export default function WhatWeDo({ t }) {
   ];
 
   return (
-    <section id="what-we-do" className="wwd-section" aria-label="Nawigacja po sekcjach">
+    <section id="what-we-do" className="wwd-section" aria-label={t.aria_nav_sections || "Nawigacja po sekcjach"}>
       {/* Animated light beams sweeping across the section */}
       <div className="wwd-beams" aria-hidden="true">
         <div className="wwd-beam" style={{ '--b-delay': '0s',  '--b-dur': '9s'  }} />
@@ -109,7 +109,7 @@ export default function WhatWeDo({ t }) {
               className="wwd-card reveal"
               style={{ transitionDelay: `${i * 0.07}s` }}
               onClick={() => scrollTo(item.target)}
-              aria-label={`Przejdź do: ${item.label}`}
+              aria-label={`${t.aria_go_to || "Przejdź do: "}${item.label}`}
             >
               {/* Per-card hover beam */}
               <div className="wwd-card-beam" aria-hidden="true" />

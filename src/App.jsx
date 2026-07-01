@@ -252,7 +252,7 @@ export default function App() {
       <button
         className={`back-to-top${scrolled ? ' visible' : ''}`}
         onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-        aria-label="Wróć na górę"
+        aria-label={t.aria_back_to_top || "Wróć na górę"}
       >
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" width="18" height="18">
           <path d="M18 15l-6-6-6 6"/>
@@ -264,7 +264,7 @@ export default function App() {
         className="admin-trigger"
         onClick={() => setAdminOpen(o => !o)}
         title="Admin panel (Alt+Shift+A)"
-        aria-label="Otwórz panel admina"
+        aria-label={t.aria_admin_trigger || "Otwórz panel admina"}
       >
         ⚙
       </button>

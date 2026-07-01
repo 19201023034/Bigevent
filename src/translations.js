@@ -132,6 +132,12 @@ export const translations = {
     blog17_cat: 'Poradnik techniczny', blog17_title: 'Jak czytać dane techniczne ekranu LED? Jasność, kontrast, Hz i IP wyjaśnione', blog17_excerpt: 'Nity, kontrast 8500:1, odświeżanie 7680 Hz, IP65 — co te liczby znaczą w praktyce dla Twojego eventu. Słownik parametrów LED.',
     blog18_cat: 'Targi & Logistyka', blog18_title: 'Hannover Messe, bauma München, Interpack — wynajem ekranów LED lokalnie z NRW', blog18_excerpt: 'Lokalny dostawca LED z Aachen to szybsza reakcja, zero kosztów noclegów dla ekipy i znajomość procedur hal targowych w Niemczech.',
     blog_read_more: 'Zobacz wszystkie artykuły',
+    aria_back_to_top: 'Wróć na górę',
+    aria_admin_trigger: 'Otwórz panel admina',
+    aria_canvas_bg: 'Animowane tło z pikseli LED',
+    aria_nav_sections: 'Nawigacja po sekcjach',
+    aria_go_to: 'Przejdź do: ',
+    aria_close: 'Zamknij',
   },
   en: {
     nav_services: 'Services', nav_studio: 'Studio', nav_portfolio: 'Portfolio', nav_testimonials: 'Reviews', nav_blog: 'Blog', nav_calc: 'Calculator',
@@ -266,6 +272,12 @@ export const translations = {
     blog17_cat: 'Technical Guide', blog17_title: 'How to Read LED Screen Specs? Brightness, Contrast, Hz and IP Explained', blog17_excerpt: 'Nits, 8500:1 contrast, 7680 Hz refresh rate, IP65 — what these numbers actually mean in practice for your event.',
     blog18_cat: 'Trade Fairs & Logistics', blog18_title: 'Hannover Messe, bauma Munich, Interpack — Local LED Screen Rental from NRW', blog18_excerpt: 'A local LED supplier from Aachen means faster response, zero crew accommodation costs and in-depth knowledge of German trade fair venues.',
     blog_read_more: 'See all articles',
+    aria_back_to_top: 'Back to top',
+    aria_admin_trigger: 'Open admin panel',
+    aria_canvas_bg: 'Animated background with LED pixels',
+    aria_nav_sections: 'Section navigation',
+    aria_go_to: 'Go to: ',
+    aria_close: 'Close',
   },
   de: {
     nav_services: 'Leistungen', nav_studio: 'Studio', nav_portfolio: 'Projekte', nav_testimonials: 'Bewertungen', nav_blog: 'Blog', nav_calc: 'Rechner',
@@ -400,5 +412,11 @@ export const translations = {
     blog17_cat: 'Technischer Ratgeber', blog17_title: 'LED-Screen-Spezifikationen verstehen: Helligkeit, Kontrast, Hz und IP erklärt', blog17_excerpt: 'Nits, 8500:1 Kontrast, 7680 Hz Bildwiederholrate, IP65 — was diese Zahlen in der Praxis für Ihre Veranstaltung bedeuten.',
     blog18_cat: 'Messen & Logistik', blog18_title: 'Hannover Messe, bauma München, Interpack — LED-Wand mieten lokal aus NRW', blog18_excerpt: 'Ein lokaler LED-Lieferant aus Aachen bedeutet schnellere Reaktionszeit, keine Unterkunftskosten für die Crew und Kenntnisse der deutschen Messehallen.',
     blog_read_more: 'Alle Artikel anzeigen',
+    aria_back_to_top: 'Zurück nach oben',
+    aria_admin_trigger: 'Admin-Panel öffnen',
+    aria_canvas_bg: 'Animierter Hintergrund aus LED-Pixeln',
+    aria_nav_sections: 'Bereichsnavigation',
+    aria_go_to: 'Gehe zu: ',
+    aria_close: 'Schließen',
   }
 };
